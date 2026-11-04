@@ -21,9 +21,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-  /* ==========================================
-     0. LUXURY DESIGN TOKENS
-     ========================================== */
   :root {
     --bg-page: #FBF8F3;
     --bg-page-alt: #F4EFEA;
@@ -90,7 +87,7 @@
   }
 
   /* ==========================================
-     1. FLAGSHIP TOP NAVIGATION BAR (INDEX.HTML STANDARD)
+     1. UNIFIED SIZED & SHAPED TOP NAVBAR
      ========================================== */
   .topNavWrapper {
     position: fixed;
@@ -111,88 +108,56 @@
     justify-content: space-between;
     gap: 8px;
     width: 100%;
-    max-width: 440px;
-    height: 46px;
-    background: rgba(18, 16, 14, 0.72);
+    max-width: 420px;
+    height: 48px;
+    background: rgba(18, 16, 14, 0.76);
     backdrop-filter: blur(28px) saturate(210%);
     -webkit-backdrop-filter: blur(28px) saturate(210%);
     border: 1px solid rgba(243, 213, 141, 0.35);
     border-radius: 9999px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1.5px rgba(255, 255, 255, 0.22);
-    padding: 4px 6px 4px 10px;
-    transition: all 0.3s ease;
+    padding: 5px 6px;
   }
 
+  /* All 3 buttons share exact same height, shape, and proportions */
   .navPillBtn {
-    height: 36px;
+    flex: 1;
+    height: 38px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 700;
     text-decoration: none;
     transition: all 0.25s ease;
     white-space: nowrap;
+    box-sizing: border-box;
+    border: 1px solid rgba(243, 213, 141, 0.22);
   }
 
-  .navReviewsBtn {
+  .navPillStandard {
+    background: rgba(255, 255, 255, 0.08);
     color: #F8EDD3;
-    padding: 0 12px;
     gap: 5px;
   }
 
-  .navReviewsBtn:hover {
+  .navPillStandard:hover {
+    background: rgba(255, 255, 255, 0.16);
     color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.1);
   }
 
-  .navLangToggle {
-    background: rgba(0, 0, 0, 0.45);
-    border: 1px solid rgba(243, 213, 141, 0.3);
-    color: #FFFFFF;
-    display: inline-flex;
-    align-items: center;
-    padding: 2px 4px;
-    height: 32px;
-    user-select: none;
-  }
-
-  .langOpt {
-    padding: 3px 8px;
-    border-radius: 9999px;
-    font-size: 11.5px;
-    font-weight: 800;
-    transition: all 0.2s ease;
-    opacity: 0.65;
-  }
-
-  .langOpt.active {
-    background: #D4AF37;
-    color: #1A1612;
-    opacity: 1;
-    box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
-  }
-
-  .langSep {
-    font-size: 10px;
-    opacity: 0.35;
-    margin: 0 1px;
-  }
-
-  .navBookBtn {
-    background: linear-gradient(135deg, #F3D58D 0%, #D4AF37 100%);
+  /* Book Direct: same size & shape, slightly highlighted for visibility */
+  .navPillHighlight {
+    background: linear-gradient(135deg, rgba(243, 213, 141, 0.95) 0%, rgba(212, 175, 55, 0.95) 100%);
     color: #141210;
-    font-size: 12px;
-    font-weight: 800;
-    padding: 0 16px;
-    border: 1px solid rgba(255, 248, 225, 0.85);
-    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+    border-color: rgba(255, 248, 225, 0.85);
+    box-shadow: 0 3px 12px rgba(212, 175, 55, 0.4);
   }
 
-  .navBookBtn:hover {
+  .navPillHighlight:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 5px 16px rgba(212, 175, 55, 0.55);
   }
 
   .pillStar {
@@ -201,7 +166,7 @@
   }
 
   /* ==========================================
-     2. COMMANDING 100SVH HERO SECTION
+     2. 100SVH HERO WITH LIQUID GLASS BUTTON (ARROW UNDERNEATH)
      ========================================== */
   .heroSection {
     position: relative;
@@ -228,7 +193,7 @@
     z-index: 1;
   }
 
-  /* High-Contrast Sunlit Scrim for Black Hero Typography */
+  /* High-Contrast Sunlit Scrim for Black Typography */
   .heroOverlay {
     position: absolute;
     inset: 0;
@@ -247,7 +212,6 @@
     padding: 10px;
   }
 
-  /* Black, Commanding, Highly Visible Hero Typography */
   .heroTitle {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(48px, 8.5vw, 88px);
@@ -279,32 +243,42 @@
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
   }
 
-  /* Sleek, Minimalist, Small Explore Button (Flagship Standard) */
-  .heroMinimalBtn {
+  /* Explore The Residence: See-through Liquid Glass with Arrow Underneath */
+  .heroLiquidGlassBtn {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    background: rgba(18, 16, 14, 0.78);
-    backdrop-filter: blur(14px) saturate(160%);
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
-    color: #F8EDD3;
-    padding: 8px 22px;
-    font-size: 13px;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    color: #111827;
+    padding: 10px 24px;
+    font-size: 13.5px;
     font-weight: 700;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     border-radius: 9999px;
-    border: 1px solid rgba(243, 213, 141, 0.45);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.6);
     transition: all 0.25s ease;
     text-decoration: none;
   }
 
-  .heroMinimalBtn:hover {
+  .heroLiquidGlassBtn:hover {
+    background: rgba(255, 255, 255, 0.42);
     transform: translateY(-2px);
-    background: rgba(26, 22, 18, 0.9);
-    border-color: rgba(243, 213, 141, 0.75);
-    color: #FFFFFF;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  }
+
+  .exploreDownArrow {
+    color: #8C6A1D;
+    animation: arrowBounce 2s infinite ease-in-out;
+  }
+
+  @keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
   }
 
   /* Floating Marquee directly over photo */
@@ -387,7 +361,7 @@
     margin: 0 auto;
   }
 
-  /* Big Photo Stage (Covering most of the screen, clean, zero blocking) */
+  /* Big Photo Stage */
   .bigPhotoStage {
     position: relative;
     width: 100%;
@@ -413,7 +387,6 @@
     transition: opacity 0.35s ease;
   }
 
-  /* Clean Arrow Buttons */
   .stageArrowBtn {
     position: absolute;
     top: 50%;
@@ -442,7 +415,7 @@
   .stagePrevBtn { left: 12px; }
   .stageNextBtn { right: 12px; }
 
-  /* Small Thumbnail Selector Strip Under Big Photo */
+  /* Small Thumbnail Selector Strip */
   .photoThumbTrack {
     display: flex;
     align-items: center;
@@ -482,7 +455,7 @@
     object-fit: cover;
   }
 
-  /* Small Narrative Card Telling About the Apartment */
+  /* Small Narrative Card */
   .residenceStoryCard {
     background: var(--bg-card);
     border: 1px solid var(--border-luxury);
@@ -510,7 +483,7 @@
   }
 
   /* ==========================================
-     4. SWIPEABLE 4-CARD AMENITIES WITH TOGGLE SWITCH
+     4. SWIPEABLE 4-CARD AMENITIES (16 ITEMS PER TAB)
      ========================================== */
   .amenitiesUnifiedCard {
     background: var(--bg-card);
@@ -531,39 +504,46 @@
     font-size: clamp(24px, 4vw, 32px);
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
-  /* Segmented Toggle Switch on Top */
+  /* Symmetrical Segmented Toggle Switch locked inside pillar */
   .amenityToggleSwitch {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
     background: #EFE9DF;
     border-radius: 9999px;
-    padding: 4px;
+    padding: 3px;
     border: 1px solid rgba(195, 175, 145, 0.45);
-    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .tabToggleBtn {
+    flex: 1;
     border: none;
     background: transparent;
-    padding: 7px 16px;
+    padding: 8px 12px;
     border-radius: 9999px;
     font-size: 12.5px;
     font-weight: 700;
     color: var(--text-secondary);
     transition: all 0.25s ease;
+    text-align: center;
     white-space: nowrap;
+    box-sizing: border-box;
   }
 
   .tabToggleBtn.active {
     background: #FFFFFF;
     color: #111827;
-    box-shadow: 0 3px 10px rgba(45, 35, 25, 0.08);
+    box-shadow: 0 2px 8px rgba(45, 35, 25, 0.1);
   }
 
-  /* Swipeable 4-Card Stage Container */
+  /* Swipeable Stage Container */
   .swipeCardsContainer {
     position: relative;
     overflow: hidden;
@@ -622,7 +602,7 @@
     line-height: 1.35;
   }
 
-  /* Paging Controls & Dots for Swipe Cards */
+  /* Paging Controls */
   .swipePaginationBar {
     display: flex;
     align-items: center;
@@ -671,7 +651,7 @@
   }
 
   /* ==========================================
-     5. MINIMAL SYMMETRICAL REVIEWS CAROUSEL
+     5. SYMMETRICAL REVIEWS CAROUSEL
      ========================================== */
   .reviewsWrapper {
     padding: 60px 18px;
@@ -680,6 +660,7 @@
     text-align: center;
   }
 
+  /* Nicely written symmetrical 9.4 / 10 Superb on Booking.com */
   .ratingSymmetricalPill {
     display: inline-flex;
     align-items: center;
@@ -687,13 +668,14 @@
     gap: 8px;
     background: #FFFFFF;
     border: 1px solid var(--border-luxury);
-    padding: 7px 18px;
+    padding: 8px 22px;
     border-radius: 9999px;
-    box-shadow: 0 4px 15px rgba(45, 35, 25, 0.04);
-    font-size: 13.5px;
+    box-shadow: 0 4px 15px rgba(45, 35, 25, 0.05);
+    font-size: 14px;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 24px;
+    white-space: nowrap;
   }
 
   .pillStarIcon { color: var(--gold-primary); font-size: 14px; }
@@ -704,7 +686,7 @@
     background: var(--bg-card);
     border: 1px solid var(--border-luxury);
     border-radius: 24px;
-    padding: 32px 20px 24px;
+    padding: 34px 22px 24px;
     box-shadow: var(--shadow-card);
     min-height: 250px;
     display: flex;
@@ -734,17 +716,17 @@
   .reviewQuoteText {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
-    font-size: clamp(17px, 2.8vw, 21px);
+    font-size: clamp(19px, 3.4vw, 24px);
     line-height: 1.55;
     color: var(--text-primary);
-    margin-bottom: 18px;
-    max-width: 640px;
+    margin-bottom: 20px;
+    max-width: 660px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .reviewAuthor {
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 4px;
@@ -811,7 +793,7 @@
   }
 
   /* ==========================================
-     6. COMPACT, VERTICALLY COMPRESSED BOOKING CARD
+     6. COMPACT BOOKING & AVAILABILITY CARD
      ========================================== */
   .bookingWrapper {
     padding: 40px 18px 90px;
@@ -823,8 +805,11 @@
     background: var(--bg-card);
     border: 1px solid var(--border-luxury);
     border-radius: 24px;
-    padding: 24px 20px;
+    padding: 22px 16px;
     box-shadow: var(--shadow-card);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .bookingHeader {
@@ -860,8 +845,10 @@
   .compactFormGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 8px;
     margin-top: 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .formGroup {
@@ -869,6 +856,9 @@
     flex-direction: column;
     gap: 4px;
     text-align: left;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .formLabel {
@@ -879,17 +869,24 @@
 
   .formInput, .formSelect {
     height: 40px;
-    padding: 0 10px;
+    padding: 0 8px;
     border-radius: 10px;
     border: 1px solid rgba(195, 175, 145, 0.45);
     background: #FFFFFF;
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--text-primary);
     outline: none;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
-  .formGroupFull {
-    grid-column: span 2;
+  input[type="date"] {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .compactRateStrip {
@@ -915,7 +912,6 @@
     color: #111827;
   }
 
-  /* 100% Symmetrical Centered WhatsApp Booking Button */
   .symmetricalBookingBtn {
     margin: 14px auto 0;
     width: 100%;
@@ -941,7 +937,7 @@
   }
 
   /* ==========================================
-     7. ULTRA SLIM MINIMAL FLOATING STICKY BAR
+     7. ULTRA SLIM FLOATING STICKY BAR
      ========================================== */
   .slimStickyBar {
     position: fixed;
@@ -1048,25 +1044,22 @@
 <!-- Ambient Paper Grain -->
 <div class="paperFilmGrain" aria-hidden="true"></div>
 
-<!-- 1. FLAGSHIP TOP NAVIGATION BAR (INDEX.HTML STANDARD) -->
+<!-- 1. UNIFIED SIZED & SHAPED TOP NAVBAR -->
 <header class="topNavWrapper">
   <nav class="flagshipNavBar" aria-label="Main Navigation">
-    <a href="#reviews" class="navPillBtn navReviewsBtn">
-      <span class="pillStar">★</span>
+    <a href="#reviews" class="navPillBtn navPillStandard">
       <span data-en="Reviews" data-ru="Отзывы">Reviews</span>
     </a>
-    <div class="navPillBtn navLangToggle" id="langToggleBtn" onclick="toggleLanguage()" role="button" aria-label="Toggle Language EN RU">
-      <span class="langOpt active" id="langEn">EN</span>
-      <span class="langSep">/</span>
-      <span class="langOpt" id="langRu">RU</span>
+    <div class="navPillBtn navPillStandard" id="langToggleBtn" onclick="toggleLanguage()" role="button" aria-label="Toggle Language">
+      <span id="langDisplay">EN / RU</span>
     </div>
-    <a href="#booking" class="navPillBtn navBookBtn">
+    <a href="#booking" class="navPillBtn navPillHighlight">
       <span data-en="Book Direct" data-ru="Бронь">Book Direct</span>
     </a>
   </nav>
 </header>
 
-<!-- 2. COMMANDING HERO SECTION (BLACK HIGH-CONTRAST TYPOGRAPHY & SLEEK MINIMAL CTA) -->
+<!-- 2. COMMANDING HERO SECTION (BLACK HIGH-CONTRAST TYPOGRAPHY & LIQUID GLASS EXPLORE BUTTON) -->
 <section class="heroSection" id="hero">
   <img src="images/mountain_orchid/new_gudauri_sunny_hero_4k.jpg" alt="Sunny panoramic view of New Gudauri ski resort chalets and Caucasus mountain peaks" class="heroBgImage" loading="eager">
   <div class="heroOverlay" aria-hidden="true"></div>
@@ -1077,10 +1070,10 @@
     <p class="heroSubtitle" data-en="Luxury Alpine Residence in New Gudauri" data-ru="Роскошная альпийская резиденция в Новом Гудаури">Luxury Alpine Residence in New Gudauri</p>
     <p class="heroDesc" data-en="A warm alpine sanctuary in the snow peaks of Gudauri. Experience true Georgian hospitality with panoramic mountain vistas and direct booking privilege." data-ru="Уютное альпийское убежище среди заснеженных вершин Гудаури. Настоящее грузинское гостеприимство с панорамными горными видами и прямым бронированием.">A warm alpine sanctuary in the snow peaks of Gudauri. Experience true Georgian hospitality with panoramic mountain vistas and direct booking privilege.</p>
 
-    <!-- Sleek, Minimalist, Small Explore Button (Flagship Standard) -->
-    <a href="#residence" class="heroMinimalBtn">
-      <span data-en="Explore Residence" data-ru="К апартаментам">Explore Residence</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <!-- Liquid Glass See-Through Button with Arrow Underneath -->
+    <a href="#residence" class="heroLiquidGlassBtn">
+      <span data-en="Explore The Residence" data-ru="Познакомиться с апартаментами">Explore The Residence</span>
+      <svg class="exploreDownArrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M6 9l6 6 6-6"/>
       </svg>
     </a>
@@ -1116,7 +1109,7 @@
     <p class="sectionSubtitle" data-en="Your Private Winter Sanctuary at 2,200 Meters" data-ru="Ваше личное зимнее убежище на высоте 2200 метров">Your Private Winter Sanctuary at 2,200 Meters</p>
   </div>
 
-  <!-- BIG PHOTO STAGE (Covering most of the screen, clean, zero blocking) -->
+  <!-- BIG PHOTO STAGE (Covering most of the screen) -->
   <div class="bigPhotoStage" id="bigPhotoStage">
     <img src="images/mountain_orchid/126164321.jpg" alt="Signature tea balcony overlooking Caucasus snowy peaks" id="mainStagePhoto" class="bigPhotoImg">
     <button class="stageArrowBtn stagePrevBtn" onclick="navigateStagePhoto(-1)" aria-label="Previous Photo">
@@ -1161,12 +1154,12 @@
     <p class="residenceStoryText" data-en="Nestled in New Gudauri Aparthotel 4, this studio residence combines contemporary alpine luxury with the heartwarming hospitality of host Manana. After an exhilarating day carving fresh powder on Mount Kudebi, return to a warmly heated sanctuary featuring a comfortable double bed, versatile sofa bed, dining area, and private balcony overlooking the snowy resort." data-ru="Расположенная в New Gudauri Aparthotel 4, эта студия сочетает современный альпийский комфорт и искреннее гостеприимство хозяйки Мананы. После яркого катания по свежему снегу горы Кудеби возвращайтесь в теплое убежище с удобной двуспальной кроватью, мягким диваном, обеденной зоной и балконом с видом на заснеженный курорт.">Nestled in New Gudauri Aparthotel 4, this studio residence combines contemporary alpine luxury with the heartwarming hospitality of host Manana. After an exhilarating day carving fresh powder on Mount Kudebi, return to a warmly heated sanctuary featuring a comfortable double bed, versatile sofa bed, dining area, and private balcony overlooking the snowy resort.</p>
   </div>
 
-  <!-- 4. SWIPEABLE 4-CARD AMENITIES WITH TOGGLE SWITCH -->
+  <!-- 4. SWIPEABLE 4-CARD AMENITIES (16 KEY ITEMS EACH) -->
   <div class="amenitiesUnifiedCard">
     <div class="amenitiesCardHeader">
       <h3 class="amenitiesMainTitle" data-en="Everything Included with Your Residence" data-ru="Все удобства ваших апартаментов">Everything Included with Your Residence</h3>
 
-      <!-- Segmented Toggle Switch on Top -->
+      <!-- 100% Symmetrical Segmented Toggle Switch locked inside pillar -->
       <div class="amenityToggleSwitch">
         <button class="tabToggleBtn active" id="tabResidenceBtn" onclick="switchAmenityTab('residence')">
           <span data-en="✦ Apartment Features" data-ru="✦ В апартаментах">✦ Apartment Features</span>
@@ -1180,53 +1173,7 @@
     <!-- Swipeable 4-Card Stage Container -->
     <div class="swipeCardsContainer" id="swipeCardsContainer">
       <div class="swipeCardsTrack" id="swipeCardsTrack">
-        <!-- Page 1: 4 Cards -->
-        <div class="swipeCardPage">
-          <div class="amenityMiniCard">
-            <div class="amenityMiniIcon">☕</div>
-            <div class="amenityMiniTitle" data-en="Private Balcony" data-ru="Личный балкон">Private Balcony</div>
-            <div class="amenityMiniSub" data-en="Snow peak panorama" data-ru="Вид на снежные пики">Snow peak panorama</div>
-          </div>
-          <div class="amenityMiniCard">
-            <div class="amenityMiniIcon">⛷️</div>
-            <div class="amenityMiniTitle" data-en="2 Min Ski Gondola" data-ru="2 мин до гондолы">2 Min Ski Gondola</div>
-            <div class="amenityMiniSub" data-en="Direct slope access" data-ru="Прямой выход к трассам">Direct slope access</div>
-          </div>
-          <div class="amenityMiniCard">
-            <div class="amenityMiniIcon">🍳</div>
-            <div class="amenityMiniTitle" data-en="Full Kitchenette" data-ru="Оснащенная кухня">Full Kitchenette</div>
-            <div class="amenityMiniSub" data-en="Stove, microwave & kettle" data-ru="Плита и микроволновка">Stove, microwave & kettle</div>
-          </div>
-          <div class="amenityMiniCard">
-            <div class="amenityMiniIcon">📶</div>
-            <div class="amenityMiniTitle" data-en="High Speed WiFi" data-ru="Скоростной Wi-Fi">High Speed WiFi</div>
-            <div class="amenityMiniSub" data-en="Fast fiber connection" data-ru="Надежный интернет">Fast fiber connection</div>
-          </div>
-        </div>
-
-        <!-- Page 2: Next 4 Cards -->
-        <div class="swipeCardPage">
-          <div class="amenityMiniCard">
-            <div class="amenityMiniIcon">🧺</div>
-            <div class="amenityMiniTitle" data-en="In Unit Washer" data-ru="Стиральная машина">In Unit Washer</div>
-            <div class="amenityMiniSub" data-en="Complimentary laundry" data-ru="Бесплатная стирка">Complimentary laundry</div>
-          </div>
-          <div class="amenityMiniCard">
-            <div class="amenityMiniIcon">🎿</div>
-            <div class="amenityMiniTitle" data-en="Heated Ski Depot" data-ru="Лыжное депо">Heated Ski Depot</div>
-            <div class="amenityMiniSub" data-en="Secure equipment locker" data-ru="Сухое хранилище лыж">Secure equipment locker</div>
-          </div>
-          <div class="amenityMiniCard">
-            <div class="amenityMiniIcon">🔥</div>
-            <div class="amenityMiniTitle" data-en="Alpine Radiators" data-ru="Теплые радиаторы">Alpine Radiators</div>
-            <div class="amenityMiniSub" data-en="Cozy sub zero warmth" data-ru="Надежное отопление">Cozy sub zero warmth</div>
-          </div>
-          <div class="amenityMiniCard">
-            <div class="amenityMiniIcon">📺</div>
-            <div class="amenityMiniTitle" data-en="Smart TV & Dining" data-ru="Smart TV и столовая">Smart TV & Dining</div>
-            <div class="amenityMiniSub" data-en="Cable & streaming" data-ru="Вечерний отдых">Cable & streaming</div>
-          </div>
-        </div>
+        <!-- Rendered dynamically with 16 curated items (4 pages of 4) -->
       </div>
     </div>
 
@@ -1238,6 +1185,8 @@
       <div class="swipeDots" id="swipeDots">
         <span class="swipeDot active" onclick="setAmenityPage(0)"></span>
         <span class="swipeDot" onclick="setAmenityPage(1)"></span>
+        <span class="swipeDot" onclick="setAmenityPage(2)"></span>
+        <span class="swipeDot" onclick="setAmenityPage(3)"></span>
       </div>
       <button class="swipeArrowMiniBtn" onclick="navigateAmenityPage(1)" aria-label="Next Page">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
@@ -1246,20 +1195,19 @@
   </div>
 </section>
 
-<!-- 5. MINIMAL SYMMETRICAL REVIEWS CAROUSEL -->
+<!-- 5. SYMMETRICAL REVIEWS CAROUSEL -->
 <section class="reviewsWrapper" id="reviews">
   <div class="sectionHeader">
     <span class="sectionKicker" data-en="✦ VERIFIED EXPERIENCES" data-ru="✦ ПРОВЕРЕННЫЕ ОТЗЫВЫ">✦ VERIFIED EXPERIENCES</span>
     <h2 class="sectionTitle" data-en="What Our Guests Say" data-ru="Что говорят наши гости">What Our Guests Say</h2>
   </div>
 
+  <!-- Symmetrical Single-Line Rating Pill (Superb on Booking.com & 9.4 / 10) -->
   <div class="ratingSymmetricalPill">
     <span class="pillStarIcon">★</span>
     <span class="pillScore">9.4 / 10</span>
     <span class="pillDot">•</span>
     <span data-en="Superb on Booking.com" data-ru="Потрясающе на Booking.com">Superb on Booking.com</span>
-    <span class="pillDot">•</span>
-    <span data-en="15+ Verified Reviews" data-ru="15+ отзывов">15+ Verified Reviews</span>
   </div>
 
   <div class="reviewCarouselCard">
@@ -1295,7 +1243,7 @@
       <div class="reviewStayTag" data-en="Booking.com Verified Guest • 10 / 10" data-ru="Подтвержденный отзыв Booking.com • 10 / 10">Booking.com Verified Guest • 10 / 10</div>
     </div>
 
-    <!-- Bottom Navigation Bar (Arrows NEVER overlap text) -->
+    <!-- Bottom Navigation Bar -->
     <div class="reviewNavBottomBar">
       <button class="reviewArrowBtn" onclick="navigateReviewSlide(-1)" aria-label="Previous Review">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
@@ -1358,7 +1306,7 @@
         <div class="rateRightPrice">$85 <span style="font-size: 11.5px; font-weight: 500; color: #6B7280;" data-en="/ night" data-ru="/ ночь">/ night</span></div>
       </div>
 
-      <!-- 100% Symmetrical Centered WhatsApp Booking Button -->
+      <!-- Symmetrical Centered WhatsApp Booking Button -->
       <button type="submit" class="symmetricalBookingBtn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span data-en="Send Direct Inquiry via WhatsApp" data-ru="Запросить даты в WhatsApp">Send Direct Inquiry via WhatsApp</span>
@@ -1367,7 +1315,7 @@
   </div>
 </section>
 
-<!-- 7. ULTRA SLIM MINIMAL FLOATING STICKY BAR -->
+<!-- 7. ULTRA SLIM FLOATING STICKY BAR -->
 <div class="slimStickyBar" id="mobileStickyBar">
   <div style="display: flex; align-items: baseline; gap: 4px;">
     <span class="stickyRateLabel">$85/night</span>
@@ -1405,17 +1353,12 @@
       }
     });
 
-    const langEn = document.getElementById('langEn');
-    const langRu = document.getElementById('langRu');
-    if (lang === 'ru') {
-      langRu.classList.add('active');
-      langEn.classList.remove('active');
-      document.documentElement.lang = 'ru';
-    } else {
-      langEn.classList.add('active');
-      langRu.classList.remove('active');
-      document.documentElement.lang = 'en';
+    const langDisplay = document.getElementById('langDisplay');
+    if (langDisplay) {
+      langDisplay.textContent = lang === 'ru' ? 'RU / EN' : 'EN / RU';
     }
+    document.documentElement.lang = lang;
+    renderAmenityCards();
   }
 
   function toggleLanguage() {
@@ -1451,54 +1394,85 @@
   function navigateStagePhoto(dir) {
     let nextIdx = (currentStageIdx + dir + stagePhotos.length) % stagePhotos.length;
     selectStagePhoto(nextIdx);
-    // Auto scroll thumbnail into view
     if (photoThumbs[nextIdx]) {
       photoThumbs[nextIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   }
 
-  // 3. Swipeable 4-Card Stage & Residence/Resort Tab Switcher
+  // 3. 16 Curated Items for Apartment Features (4 pages of 4) & 16 Items for Resort & Village (4 pages of 4)
   let activeAmenityTab = 'residence';
   let currentAmenityPage = 0;
   const swipeCardsTrack = document.getElementById('swipeCardsTrack');
   const swipeDots = document.querySelectorAll('.swipeDot');
 
-  const resortCardDataPage1 = [
-    { icon: '⛷️', titleEn: 'Gondola & Ski Lifts', titleRu: 'Подъемник и трассы', subEn: 'Direct access to Kudebi peak', subRu: 'Прямой выход к гондоле' },
-    { icon: '🏊', titleEn: 'Heated Pool & Spa', titleRu: 'Теплый бассейн и СПА', subEn: 'Indoor pool & sauna in complex', subRu: 'Крытый бассейн и сауна' },
-    { icon: '🍽️', titleEn: 'Apres Ski & Dining', titleRu: 'Рестораны и апре-ски', subEn: 'Georgian chalets & cafes', subRu: 'Грузинские рестораны' },
-    { icon: '🎿', titleEn: 'Ski Rentals & Plaza', titleRu: 'Прокат снаряжения', subEn: 'Gear depot 150m away', subRu: 'Прокат лыж в 150м' }
+  const residence16Items = [
+    // Page 1
+    [
+      { icon: '☕', titleEn: 'Private Balcony', titleRu: 'Личный балкон', subEn: 'Snow peak panorama', subRu: 'Вид на снежные пики' },
+      { icon: '⛷️', titleEn: '2 Min Ski Gondola', titleRu: '2 мин до гондолы', subEn: 'Direct slope access', subRu: 'Прямой выход к трассам' },
+      { icon: '🍳', titleEn: 'Full Kitchenette', titleRu: 'Оснащенная кухня', subEn: 'Stove, microwave & kettle', subRu: 'Плита и микроволновка' },
+      { icon: '📶', titleEn: 'High Speed WiFi', titleRu: 'Скоростной Wi-Fi', subEn: 'Fast fiber connection', subRu: 'Надежный интернет' }
+    ],
+    // Page 2
+    [
+      { icon: '🧺', titleEn: 'In Unit Washer', titleRu: 'Стиральная машина', subEn: 'Complimentary laundry', subRu: 'Бесплатная стирка' },
+      { icon: '🎿', titleEn: 'Heated Ski Depot', titleRu: 'Лыжное депо', subEn: 'Secure equipment locker', subRu: 'Сухое хранилище лыж' },
+      { icon: '🔥', titleEn: 'Alpine Radiators', titleRu: 'Теплые радиаторы', subEn: 'Cozy sub zero warmth', subRu: 'Надежное отопление' },
+      { icon: '📺', titleEn: 'Smart TV & Dining', titleRu: 'Smart TV и столовая', subEn: 'Cable & streaming', subRu: 'Вечерний отдых' }
+    ],
+    // Page 3
+    [
+      { icon: '🛏️', titleEn: 'Plush Double Bed', titleRu: 'Двуспальная кровать', subEn: 'Orthopedic comfort', subRu: 'Ортопедический матрас' },
+      { icon: '🛋️', titleEn: 'Convertible Sofa', titleRu: 'Раскладной диван', subEn: 'Extra guest sleeping', subRu: 'Дополнительные места' },
+      { icon: '🚿', titleEn: 'Rain Shower', titleRu: 'Тропический душ', subEn: 'Hot water & heated rail', subRu: 'Полотенцесушитель' },
+      { icon: '🫖', titleEn: 'Tea Time Station', titleRu: 'Чайная станция', subEn: 'Greenfield tea collection', subRu: 'Коллекция чая' }
+    ],
+    // Page 4
+    [
+      { icon: '🏔️', titleEn: 'Snow Resort Vista', titleRu: 'Вид на курорт', subEn: 'Direct mountain scenery', subRu: 'Панорама гор' },
+      { icon: '🔌', titleEn: 'Fast USB Outlets', titleRu: 'USB розетки', subEn: 'Convenient charging', subRu: 'Зарядка гаджетов' },
+      { icon: '🪟', titleEn: 'Quiet Double Glass', titleRu: 'Шумоизоляция', subEn: 'Peaceful alpine rest', subRu: 'Тишина и тепло' },
+      { icon: '🔑', titleEn: 'Express Keybox', titleRu: 'Быстрое заселение', subEn: 'Flexible easy arrival', subRu: 'Удобное заселение' }
+    ]
   ];
 
-  const resortCardDataPage2 = [
-    { icon: '🏪', titleEn: 'Smart Market', titleRu: 'Супермаркет', subEn: 'Groceries & wine in village', subRu: 'Продукты и напитки' },
-    { icon: '🅿️', titleEn: 'Secure Parking', titleRu: 'Парковка', subEn: 'Convenient resort parking', subRu: 'Удобная автостоянка' },
-    { icon: '☕', titleEn: 'Espresso Bars', titleRu: 'Кофейни', subEn: 'Fresh pastry & coffee', subRu: 'Свежий кофе и десерты' },
-    { icon: '🏔️', titleEn: 'Snowmobile Tours', titleRu: 'Снегоходы и туры', subEn: 'Guided mountain tours', subRu: 'Горные экскурсии' }
-  ];
-
-  const residenceCardDataPage1 = [
-    { icon: '☕', titleEn: 'Private Balcony', titleRu: 'Личный балкон', subEn: 'Snow peak panorama', subRu: 'Вид на снежные пики' },
-    { icon: '⛷️', titleEn: '2 Min Ski Gondola', titleRu: '2 мин до гондолы', subEn: 'Direct slope access', subRu: 'Прямой выход к трассам' },
-    { icon: '🍳', titleEn: 'Full Kitchenette', titleRu: 'Оснащенная кухня', subEn: 'Stove, microwave & kettle', subRu: 'Плита и микроволновка' },
-    { icon: '📶', titleEn: 'High Speed WiFi', titleRu: 'Скоростной Wi-Fi', subEn: 'Fast fiber connection', subRu: 'Надежный интернет' }
-  ];
-
-  const residenceCardDataPage2 = [
-    { icon: '🧺', titleEn: 'In Unit Washer', titleRu: 'Стиральная машина', subEn: 'Complimentary laundry', subRu: 'Бесплатная стирка' },
-    { icon: '🎿', titleEn: 'Heated Ski Depot', titleRu: 'Лыжное депо', subEn: 'Secure equipment locker', subRu: 'Сухое хранилище лыж' },
-    { icon: '🔥', titleEn: 'Alpine Radiators', titleRu: 'Теплые радиаторы', subEn: 'Cozy sub zero warmth', subRu: 'Надежное отопление' },
-    { icon: '📺', titleEn: 'Smart TV & Dining', titleRu: 'Smart TV и столовая', subEn: 'Cable & streaming', subRu: 'Вечерний отдых' }
+  const resort16Items = [
+    // Page 1
+    [
+      { icon: '⛷️', titleEn: 'Gondola & Ski Lifts', titleRu: 'Подъемник и трассы', subEn: 'Direct access to Kudebi', subRu: 'Прямой выход к гондоле' },
+      { icon: '🏊', titleEn: 'Heated Pool & Spa', titleRu: 'Теплый бассейн и СПА', subEn: 'Indoor pool in complex', subRu: 'Крытый бассейн и сауна' },
+      { icon: '🍽️', titleEn: 'Apres Ski & Dining', titleRu: 'Рестораны и апре-ски', subEn: 'Georgian chalets & cafes', subRu: 'Грузинские рестораны' },
+      { icon: '🎿', titleEn: 'Ski Rentals & Plaza', titleRu: 'Прокат снаряжения', subEn: 'Gear depot 150m away', subRu: 'Прокат лыж в 150м' }
+    ],
+    // Page 2
+    [
+      { icon: '🏪', titleEn: 'Smart Market', titleRu: 'Супермаркет', subEn: 'Groceries & wine in village', subRu: 'Продукты и напитки' },
+      { icon: '🅿️', titleEn: 'Secure Parking', titleRu: 'Парковка', subEn: 'Convenient resort parking', subRu: 'Удобная автостоянка' },
+      { icon: '☕', titleEn: 'Espresso Bars', titleRu: 'Кофейни', subEn: 'Fresh pastry & coffee', subRu: 'Свежий кофе и десерты' },
+      { icon: '🏔️', titleEn: 'Snowmobile Tours', titleRu: 'Снегоходы и туры', subEn: 'Guided mountain tours', subRu: 'Горные экскурсии' }
+    ],
+    // Page 3
+    [
+      { icon: '🏂', titleEn: 'Ski Instructors', titleRu: 'Лыжная школа', subEn: 'Certified alpine coaches', subRu: 'Опытные инструкторы' },
+      { icon: '💊', titleEn: 'Village Pharmacy', titleRu: 'Аптека курорта', subEn: 'First aid in New Gudauri', subRu: 'Медикаменты рядом' },
+      { icon: '🏧', titleEn: '24/7 ATM Bank', titleRu: 'Банкоматы 24/7', subEn: 'Currency exchange in plaza', subRu: 'Обмен валюты' },
+      { icon: '🍕', titleEn: 'Italian Pizzerias', titleRu: 'Пиццерии', subEn: 'Wood fired pizza ovens', subRu: 'Пицца на дровах' }
+    ],
+    // Page 4
+    [
+      { icon: '🪂', titleEn: 'Paragliding Flights', titleRu: 'Парапланы', subEn: 'Tandem flights over peaks', subRu: 'Полеты над горами' },
+      { icon: '🍷', titleEn: 'Qvevri Wine Cellar', titleRu: 'Винный погреб', subEn: 'Authentic Kakhetian wine', subRu: 'Грузинские вина' },
+      { icon: '👶', titleEn: 'Kids Magic Carpet', titleRu: 'Детская трасса', subEn: 'Safe beginner slopes', subRu: 'Трассы для детей' },
+      { icon: '🚕', titleEn: '4x4 Kazbegi Transit', titleRu: 'Трансферы Казбеги', subEn: 'Gergeti Trinity Church tours', subRu: 'Экскурсии в горы' }
+    ]
   ];
 
   function renderAmenityCards() {
-    const isResort = activeAmenityTab === 'resort';
-    const page1Data = isResort ? resortCardDataPage1 : residenceCardDataPage1;
-    const page2Data = isResort ? resortCardDataPage2 : residenceCardDataPage2;
+    const pagesData = activeAmenityTab === 'resort' ? resort16Items : residence16Items;
 
-    const renderPage = (items) => `
+    swipeCardsTrack.innerHTML = pagesData.map(pageItems => `
       <div class="swipeCardPage">
-        ${items.map(item => `
+        ${pageItems.map(item => `
           <div class="amenityMiniCard">
             <div class="amenityMiniIcon">${item.icon}</div>
             <div class="amenityMiniTitle" data-en="${item.titleEn}" data-ru="${item.titleRu}">${currentLang === 'ru' ? item.titleRu : item.titleEn}</div>
@@ -1506,9 +1480,8 @@
           </div>
         `).join('')}
       </div>
-    `;
+    `).join('');
 
-    swipeCardsTrack.innerHTML = renderPage(page1Data) + renderPage(page2Data);
     setAmenityPage(0);
   }
 
@@ -1526,7 +1499,7 @@
   }
 
   function navigateAmenityPage(dir) {
-    let next = (currentAmenityPage + dir + 2) % 2;
+    let next = (currentAmenityPage + dir + 4) % 4;
     setAmenityPage(next);
   }
 
@@ -1609,8 +1582,9 @@
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
   }
 
-  // Initialize Default Form Dates
-  (function initDates() {
+  // Initialize
+  (function init() {
+    renderAmenityCards();
     const checkInInput = document.getElementById('checkInDate');
     const checkOutInput = document.getElementById('checkOutDate');
     const today = new Date();
