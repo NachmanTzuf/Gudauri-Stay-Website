@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
 <title>Apartment Mountain Orchid • New Gudauri Luxury Ski Residence</title>
-<meta name="description" content="Experience authentic alpine luxury at Apartment Mountain Orchid in New Gudauri, Georgia. Direct ski-in/ski-out location, private tea balcony with snow peak views, and 0% commission direct host booking.">
+<meta name="description" content="Experience authentic alpine luxury at Apartment Mountain Orchid in New Gudauri, Georgia. Direct ski lift proximity, private tea balcony with snow peak views, and 0% commission direct host booking.">
 
 <!-- OpenGraph & WhatsApp Social Meta -->
 <meta property="og:type" content="website">
@@ -31,9 +31,9 @@
      0. LUXURY NATURAL CREAM DESIGN TOKENS
      ========================================== */
   :root {
-    --bg-page: #FAF7F2;
+    --bg-page: #FBF8F3;
     --bg-page-alt: #F4EFEA;
-    --bg-card: rgba(255, 255, 255, 0.88);
+    --bg-card: rgba(255, 255, 255, 0.94);
     --bg-card-solid: #FFFFFF;
     --border-luxury: rgba(195, 175, 145, 0.38);
     --border-luxury-active: rgba(179, 143, 56, 0.65);
@@ -98,44 +98,48 @@
   }
 
   /* ==========================================
-     1. SYMMETRICAL TOP NAVIGATION BAR
+     1. SYMMETRICAL LIQUID GLASS TOP NAV BAR
      ========================================== */
   .topNavWrapper {
     position: fixed;
     top: 14px;
     left: 0;
     right: 0;
-    z-index: 120;
+    z-index: 1000;
     display: flex;
     justify-content: center;
     pointer-events: none;
-    padding: 0 16px;
+    padding: 0 12px;
   }
 
-  .symmetricalNavBar {
+  .liquidGlassNavBar {
     pointer-events: auto;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
-    border: 1px solid rgba(195, 175, 145, 0.45);
-    box-shadow: 0 10px 30px rgba(45, 35, 25, 0.09), 0 1px 3px rgba(45, 35, 25, 0.04);
-    padding: 6px 10px;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    max-width: 440px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(28px) saturate(210%);
+    -webkit-backdrop-filter: blur(28px) saturate(210%);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    padding: 6px 8px;
     border-radius: 9999px;
     transition: all 0.3s ease;
   }
 
   .navPillBtn {
-    height: 38px;
-    min-width: 96px;
+    height: 40px;
+    flex: 1;
+    min-width: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 0 18px;
+    padding: 0 10px;
     border-radius: 9999px;
     font-size: 13.5px;
     font-weight: 700;
@@ -146,956 +150,729 @@
   }
 
   .navReviewsBtn {
-    background: rgba(45, 35, 25, 0.05);
-    color: #1C1917;
-    border: 1px solid rgba(195, 175, 145, 0.35);
+    background: rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
   }
 
   .navReviewsBtn:hover {
-    background: rgba(45, 35, 25, 0.09);
-    border-color: rgba(179, 143, 56, 0.5);
+    background: rgba(255, 255, 255, 0.35);
     transform: translateY(-1px);
   }
 
-  .navLangTogglePill {
-    height: 38px;
-    display: inline-flex;
+  .navLangToggle {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 4px;
-    padding: 0 12px;
+    user-select: none;
+  }
+
+  .navLangToggle:hover {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .langOpt {
+    padding: 3px 8px;
     border-radius: 9999px;
-    background: rgba(45, 35, 25, 0.05);
-    border: 1px solid rgba(195, 175, 145, 0.35);
-    box-sizing: border-box;
-  }
-
-  .langChoiceBtn {
-    background: none;
-    border: none;
-    color: #78716C;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 3px 6px;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .langChoiceBtn.activeLang {
-    background: #FFFFFF;
-    color: #B38F38;
-    box-shadow: 0 2px 6px rgba(45, 35, 25, 0.12);
-  }
-
-  .langDividerSlash {
-    color: rgba(120, 113, 108, 0.4);
     font-size: 12px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+  }
+
+  .langOpt.active {
+    background: #D4AF37;
+    color: #1A1612;
+    opacity: 1;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+  }
+
+  .langSep {
+    font-size: 11px;
+    opacity: 0.4;
   }
 
   .navBookBtn {
-    background: linear-gradient(135deg, #D4AF37 0%, #B38F38 100%);
-    color: #1C1917;
-    border: 1px solid rgba(179, 143, 56, 0.6);
-    box-shadow: 0 4px 14px rgba(179, 143, 56, 0.25);
+    background: linear-gradient(135deg, #E6C665, #B38F38);
+    color: #1A1612;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(179, 143, 56, 0.35);
   }
 
   .navBookBtn:hover {
-    box-shadow: 0 6px 18px rgba(179, 143, 56, 0.38);
+    background: linear-gradient(135deg, #F0D57D, #C59F44);
     transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(179, 143, 56, 0.5);
   }
 
-  @media (max-width: 480px) {
-    .symmetricalNavBar {
-      gap: 6px;
-      padding: 5px 8px;
-    }
-    .navPillBtn {
-      height: 36px;
-      min-width: 78px;
-      padding: 0 12px;
-      font-size: 12px;
-    }
-    .navLangTogglePill {
-      height: 36px;
-      padding: 0 8px;
-    }
+  .pillStar {
+    color: #F3D58D;
+    font-size: 12px;
   }
 
   /* ==========================================
-     2. COMMANDING ALPINE HERO SECTION (100SVH)
+     2. 100SVH MINIMAL WELCOMING ALPINE HERO
      ========================================== */
   .heroSection {
     position: relative;
-    height: 100svh;
-    min-height: 640px;
+    min-height: 100svh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding-top: 15vh;
+    padding: 85px 20px 24px;
     box-sizing: border-box;
     overflow: hidden;
+    background: #1A1612;
   }
 
-  .heroBgContainer {
+  .heroBgImage {
     position: absolute;
     inset: 0;
-    z-index: 0;
-  }
-
-  .heroCoverImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 30%;
-  }
-
-  /* Flawless, fluent gradient transition into the natural cream page */
-  .heroCinematicScrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, 
-      rgba(20, 16, 12, 0.36) 0%, 
-      rgba(20, 16, 12, 0.08) 28%, 
-      rgba(250, 247, 242, 0.20) 62%, 
-      rgba(250, 247, 242, 0.85) 88%, 
-      #FAF7F2 100%
-    );
-    pointer-events: none;
+    transform: scale(1.02);
     z-index: 1;
   }
 
-  .heroCenterContent {
-    position: relative;
+  /* Dual subtle gradients for legibility & smooth natural cream transition */
+  .heroOverlay {
+    position: absolute;
+    inset: 0;
     z-index: 2;
-    max-width: 860px;
-    padding: 0 20px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    background: linear-gradient(
+      180deg,
+      rgba(15, 12, 10, 0.55) 0%,
+      rgba(15, 12, 10, 0.22) 35%,
+      rgba(15, 12, 10, 0.38) 70%,
+      rgba(251, 248, 243, 0.95) 96%,
+      #FBF8F3 100%
+    );
+    pointer-events: none;
   }
 
-  .heroMinimalBadge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(195, 175, 145, 0.5);
-    padding: 6px 18px;
-    border-radius: 9999px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #8C6B1C;
-    box-shadow: 0 4px 14px rgba(45, 35, 25, 0.06);
+  .heroContent {
+    position: relative;
+    z-index: 5;
+    max-width: 680px;
+    margin: auto 0;
+    padding: 20px 10px;
   }
 
-  .heroMainTitle {
+  .heroTitle {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(38px, 6vw, 68px);
-    font-weight: 700;
-    line-height: 1.1;
-    color: #1C1917;
-    margin: 0;
-    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.85), 0 1px 4px rgba(0,0,0,0.12);
-  }
-
-  .heroTitleAccent {
-    display: block;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(20px, 3.2vw, 32px);
-    font-weight: 500;
-    color: #9A741B;
-    margin-top: 6px;
-    letter-spacing: 0.02em;
+    font-size: clamp(40px, 7.5vw, 76px);
+    font-weight: 600;
+    line-height: 1.06;
+    color: #FFFFFF;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.85), 0 4px 45px rgba(0, 0, 0, 0.65);
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
   }
 
   .heroSubtitle {
-    max-width: 620px;
-    font-size: clamp(15px, 2vw, 17.5px);
-    font-weight: 450;
-    line-height: 1.6;
-    color: #383431;
-    margin: 0 auto;
-    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(20px, 3.2vw, 30px);
+    color: #F3D58D;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+    margin-bottom: 18px;
+    font-weight: 500;
   }
 
-  .heroMinimalActionWrap {
-    margin-top: 6px;
+  .heroDesc {
+    font-size: clamp(14px, 2vw, 17px);
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9);
+    max-width: 520px;
+    margin: 0 auto 30px;
+    line-height: 1.65;
+    font-weight: 500;
   }
 
-  .heroMinimalExploreBtn {
+  /* Explore The Residence Liquid Glass Button with Down Arrow Underneath */
+  .heroExploreBtn {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(179, 143, 56, 0.45);
-    color: #1C1917;
-    padding: 11px 24px;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 32px 14px;
     border-radius: 9999px;
-    font-size: 14px;
-    font-weight: 600;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(24px) saturate(210%);
+    -webkit-backdrop-filter: blur(24px) saturate(210%);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 14.5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 4px 16px rgba(45, 35, 25, 0.08);
-    transition: all 0.25s ease;
+    margin-bottom: 10px;
   }
 
-  .heroMinimalExploreBtn:hover {
-    background: #FFFFFF;
-    border-color: #B38F38;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(179, 143, 56, 0.2);
+  .heroExploreBtn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(2px);
   }
 
-  @media (max-width: 480px) {
-    .heroSection {
-      padding-top: 13vh;
-    }
-    .heroCenterContent {
-      gap: 12px;
-    }
+  .exploreDownArrow {
+    animation: gentleBob 2s infinite ease-in-out;
+    color: #F3D58D;
   }
 
-  /* Smooth Marquee Ribbon at the bottom of the hero */
-  .heroBottomBar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    background: rgba(250, 247, 242, 0.90);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-top: 1px solid rgba(195, 175, 145, 0.35);
-    border-bottom: 1px solid rgba(195, 175, 145, 0.25);
-    padding: 10px 0;
-    overflow: hidden;
+  @keyframes gentleBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
   }
 
-  .marqueeLuxuryRibbon {
+  /* Pure Transparent Floating Marquee Ticker directly on photo */
+  .heroTickerWrapper {
+    position: relative;
+    z-index: 5;
     width: 100%;
+    max-width: 100vw;
     overflow: hidden;
-    user-select: none;
+    padding: 10px 0;
+    mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
   }
 
-  .marqueeTrack {
+  .heroTickerTrack {
     display: flex;
+    align-items: center;
+    gap: 32px;
     width: max-content;
-    animation: luxuryMarqueeScroll 105s linear infinite;
+    animation: marqueeScroll 40s linear infinite;
   }
 
-  .marqueeTrack:hover {
+  .heroTickerTrack:hover {
     animation-play-state: paused;
   }
 
-  .marqueeGroup {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    padding-right: 28px;
-    flex-shrink: 0;
-  }
-
-  .marqueeItem {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
-    color: #44403C;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  .marqueeHighlightNum {
-    color: #B38F38;
-    font-weight: 800;
-  }
-
-  .marqueeDot {
-    color: #C59B27;
-    opacity: 0.65;
-  }
-
-  @keyframes luxuryMarqueeScroll {
+  @keyframes marqueeScroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  /* ==========================================
-     3. STAY EXPERIENCE & PHOTO GALLERIES
-     ========================================== */
-  .staySection {
-    position: relative;
-    padding: 70px 20px 80px;
-    background: var(--bg-page);
-    z-index: 10;
-  }
-
-  .sectionContainer {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .sectionHeaderCenter {
-    text-align: center;
-    margin-bottom: 34px;
-  }
-
-  .sectionKickerBadge {
-    display: inline-block;
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #8C6B1C;
-    margin-bottom: 8px;
-  }
-
-  .sectionMainTitle {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(30px, 4.2vw, 46px);
-    font-weight: 700;
-    color: #1C1917;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-
-  .sectionDescription {
-    max-width: 650px;
-    margin: 0 auto;
-    font-size: 15px;
-    color: #57534E;
-    line-height: 1.6;
-  }
-
-  /* Modern Tab Switcher */
-  .stayTabsCluster {
-    display: flex;
+  .tickerItem {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 22px;
-  }
-
-  .modernTabBtn {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(195, 175, 145, 0.38);
-    color: #57534E;
-    border-radius: 9999px;
-    padding: 9px 24px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.25s ease;
-  }
-
-  .modernTabBtn.activeModernTab {
-    background: #FFFFFF;
-    color: #B38F38;
-    border-color: #B38F38;
-    box-shadow: 0 4px 14px rgba(45, 35, 25, 0.08);
-  }
-
-  /* Photo Stage */
-  .stayPane {
-    margin-top: 24px;
-    transition: opacity 0.3s ease;
-  }
-
-  .hiddenStayPane {
-    display: none;
-  }
-
-  .cinematicPhotoStage {
-    position: relative;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #EBE5DC;
-    box-shadow: var(--shadow-card);
-    aspect-ratio: 16 / 10;
-    max-height: 520px;
-  }
-
-  .slidesTrack {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .photoSlide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-    pointer-events: none;
-  }
-
-  .photoSlide.activePhotoSlide {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .slideHeroImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .photoCaptionTag {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    background: rgba(255, 255, 255, 0.90);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(195, 175, 145, 0.45);
-    padding: 6px 14px;
-    border-radius: 9999px;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #1C1917;
-    box-shadow: 0 4px 12px rgba(45, 35, 25, 0.1);
-  }
-
-  .stageArrowBtn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(195, 175, 145, 0.45);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1C1917;
-    box-shadow: 0 4px 14px rgba(45, 35, 25, 0.12);
-    transition: all 0.2s ease;
-    z-index: 10;
-  }
-
-  .stageArrowBtn:hover {
-    background: #FFFFFF;
-    color: #B38F38;
-    transform: translateY(-50%) scale(1.05);
-  }
-
-  .stageArrowPrev { left: 16px; }
-  .stageArrowNext { right: 16px; }
-
-  /* Thumbnails ribbon */
-  .thumbsRow {
-    display: flex;
     gap: 8px;
-    margin-top: 12px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    scrollbar-width: thin;
-  }
-
-  .ribbonThumb {
-    flex-shrink: 0;
-    width: 68px;
-    height: 48px;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid transparent;
-    opacity: 0.65;
-    transition: all 0.2s ease;
-  }
-
-  .ribbonThumb:hover {
-    opacity: 0.9;
-  }
-
-  .ribbonThumb.activeRibbonThumb {
-    border-color: #B38F38;
-    opacity: 1;
-    box-shadow: 0 2px 8px rgba(179, 143, 56, 0.25);
-  }
-
-  .thumbImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Editorial Description & Compact Feature Matrix */
-  .stayEditorialPure {
-    background: var(--bg-card);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-luxury);
-    border-radius: 20px;
-    padding: 28px 24px;
-    margin-top: 20px;
-    box-shadow: var(--shadow-luxury);
-  }
-
-  .stayEditorialTitle {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #1C1917;
-    margin-bottom: 8px;
-  }
-
-  .stayEditorialParagraph {
-    font-size: 15px;
-    color: #57534E;
-    line-height: 1.65;
-    margin-bottom: 16px;
-  }
-
-  /* REVOLUTIONARY COMPACT AMENITY MATRIX (Zero Vertical Waste) */
-  .stayFeatureMatrix {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-top: 16px;
-  }
-
-  .featureMatrixItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(195, 175, 145, 0.35);
-    border-radius: 12px;
-    padding: 10px 12px;
-    box-shadow: 0 2px 8px rgba(45, 35, 25, 0.03);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-  }
-
-  .featureMatrixItem:hover {
-    border-color: rgba(179, 143, 56, 0.5);
-    transform: translateY(-1px);
-  }
-
-  .featureMatrixIcon {
-    font-size: 20px;
-    flex-shrink: 0;
-  }
-
-  .featureMatrixText {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    min-width: 0;
-  }
-
-  .featureMatrixText strong {
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 13.5px;
+    font-weight: 600;
     color: #1C1917;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 1px 3px rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.02em;
   }
 
-  .featureMatrixText span {
-    font-size: 11.5px;
-    color: #78716C;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .compactInclusionsBadge {
-    margin-top: 16px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(179, 143, 56, 0.08);
-    border: 1px solid rgba(179, 143, 56, 0.28);
-    padding: 7px 18px;
-    border-radius: 9999px;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #8C6B1C;
-  }
-
-  .resortNoticeBadge {
-    background: rgba(45, 35, 25, 0.05);
-    border: 1px solid rgba(195, 175, 145, 0.35);
-    border-radius: 12px;
-    padding: 12px 16px;
-    font-size: 13px;
-    color: #57534E;
-    line-height: 1.5;
-    margin-top: 14px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  @media (max-width: 768px) {
-    .stayFeatureMatrix {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-    .featureMatrixItem {
-      padding: 8px 10px;
-    }
-    .featureMatrixText strong {
-      font-size: 12px;
-    }
-    .featureMatrixText span {
-      font-size: 10.5px;
-    }
-  }
-
-  /* ==========================================
-     4. RATES & SEASONAL PRICING STRIP
-     ========================================== */
-  .compactPricingStrip {
-    background: var(--bg-card);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-luxury);
-    border-radius: 20px;
-    padding: 26px 24px;
-    margin-top: 26px;
-    box-shadow: var(--shadow-luxury);
-  }
-
-  .pricingStripTop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 14px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(195, 175, 145, 0.3);
-  }
-
-  .pricingStripTitle {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #1C1917;
-  }
-
-  .pricingSeasonCluster {
-    display: inline-flex;
-    background: rgba(45, 35, 25, 0.05);
-    padding: 4px;
-    border-radius: 9999px;
-    border: 1px solid rgba(195, 175, 145, 0.3);
-  }
-
-  .pricingToggleBtn {
-    background: none;
-    border: none;
-    color: #78716C;
-    font-size: 12.5px;
-    font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 9999px;
-    transition: all 0.2s ease;
-  }
-
-  .pricingToggleBtn.activePricingToggle {
-    background: #FFFFFF;
+  .tickerSpark {
     color: #B38F38;
-    box-shadow: 0 2px 6px rgba(45, 35, 25, 0.1);
-  }
-
-  .pricingGridRow {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    padding: 18px 0;
-  }
-
-  .pricingStripCol {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .pricingStripLabel {
-    font-size: 12px;
-    color: #78716C;
-    font-weight: 600;
-  }
-
-  .pricingStripValue {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1C1917;
-  }
-
-  .rateBigPrice {
-    font-size: 24px;
-    color: #B38F38;
-    font-weight: 800;
-  }
-
-  .pricingStripFooter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(195, 175, 145, 0.3);
-  }
-
-  .pricingFooterNote {
-    font-size: 12.5px;
-    color: #78716C;
-  }
-
-  .pricingFooterCtaBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: linear-gradient(135deg, #D4AF37 0%, #B38F38 100%);
-    color: #1C1917;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 8px 18px;
-    border-radius: 9999px;
-    box-shadow: 0 4px 12px rgba(179, 143, 56, 0.25);
-    transition: all 0.25s ease;
-  }
-
-  .pricingFooterCtaBtn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(179, 143, 56, 0.35);
-  }
-
-  @media (max-width: 640px) {
-    .pricingGridRow {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-  }
-
-  /* ==========================================
-     5. 100% SYMMETRICAL GUEST REVIEWS SECTION
-     ========================================== */
-  .reviewsSection {
-    position: relative;
-    padding: 80px 20px;
-    background: var(--bg-page-alt);
-    border-top: 1px solid rgba(195, 175, 145, 0.25);
-    border-bottom: 1px solid rgba(195, 175, 145, 0.25);
-  }
-
-  .reviewsMinimalHeader {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .reviewsMinimalKicker {
-    display: inline-block;
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #8C6B1C;
-    margin-bottom: 6px;
   }
 
-  .reviewsMinimalTitle {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(30px, 4vw, 42px);
-    font-weight: 700;
-    color: #1C1917;
+  /* ==========================================
+     3. COMMON LUXURY CONTENT LAYOUT
+     ========================================== */
+  .sectionWrapper {
+    position: relative;
+    padding: 70px 20px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 38px;
+  }
+
+  .sectionKicker {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-primary);
     margin-bottom: 10px;
   }
 
-  /* 100% SUPER SYMMETRICAL REVIEWS SCORE BADGE (No lopsided wrapping) */
-  .reviewsScoreBadgeSymmetrical {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: rgba(179, 143, 56, 0.10);
-    border: 1px solid rgba(179, 143, 56, 0.32);
-    padding: 7px 18px;
-    border-radius: 9999px;
-    margin: 4px auto 0;
-    text-align: center;
-    box-sizing: border-box;
-    max-width: 95%;
-  }
-
-  .scoreRatingGold {
-    color: #8C6B1C;
-    font-weight: 800;
-    font-size: 13px;
-    white-space: nowrap;
-  }
-
-  .scoreDividerDot {
-    color: rgba(140, 107, 28, 0.5);
-    font-size: 12px;
-  }
-
-  .scorePlatformText {
-    color: #57534E;
-    font-size: 12.5px;
+  .sectionTitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5.2vw, 52px);
     font-weight: 600;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 12px;
   }
 
-  @media (max-width: 480px) {
-    .reviewsScoreBadgeSymmetrical {
-      flex-direction: column;
-      gap: 2px;
-      padding: 6px 14px;
-      border-radius: 16px;
-    }
-    .scoreDividerDot {
-      display: none;
-    }
-    .scoreRatingGold {
-      font-size: 13.5px;
-    }
-    .scorePlatformText {
-      font-size: 11.5px;
-    }
-  }
-
-  .reviewsCarouselStage {
-    position: relative;
-    max-width: 720px;
+  .sectionSubtitle {
+    font-size: clamp(14.5px, 2vw, 17px);
+    color: var(--text-secondary);
+    max-width: 620px;
     margin: 0 auto;
+    line-height: 1.6;
   }
 
-  .reviewsCardsTrack {
+  /* ==========================================
+     4. RESIDENCE & UNOBSTRUCTED PHOTO SHOWCASE
+     ========================================== */
+  .residenceCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-luxury);
+    border-radius: 28px;
+    padding: 32px 24px;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 35px;
+  }
+
+  .residenceStory {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 820px;
+    margin: 0 auto 28px;
+    text-align: center;
+  }
+
+  /* Clean Unobstructed Photo Slider */
+  .photoShowcaseStage {
     position: relative;
     width: 100%;
-  }
-
-  .reviewCard {
-    background: var(--bg-card);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--border-luxury);
+    aspect-ratio: 16 / 10;
+    max-height: 520px;
     border-radius: 20px;
-    padding: 34px 28px;
-    box-shadow: var(--shadow-luxury);
-    text-align: center;
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    overflow: hidden;
+    background: #E8E2D9;
+    box-shadow: 0 10px 30px rgba(45, 35, 25, 0.1);
   }
 
-  .reviewStarsRow {
-    color: #D4AF37;
-    font-size: 17px;
-    letter-spacing: 3px;
-    margin-bottom: 14px;
+  .photoSlideItem {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
   }
 
-  .reviewQuoteText {
-    font-size: clamp(15px, 2.2vw, 17px);
-    font-style: italic;
-    line-height: 1.7;
-    color: #292524;
-    margin-bottom: 20px;
-    min-height: 80px;
+  .photoSlideItem.active {
+    opacity: 1;
+    visibility: visible;
   }
 
-  .reviewGuestMetaBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
+  .photoSlideImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .reviewAuthorName {
-    font-weight: 700;
-    font-size: 15px;
-    color: #1C1917;
-  }
-
-  .reviewBadgesRow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .reviewSourcePill {
-    background: rgba(45, 35, 25, 0.05);
-    border: 1px solid rgba(195, 175, 145, 0.3);
-    color: #57534E;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 9999px;
-  }
-
-  .reviewScorePill {
-    background: rgba(179, 143, 56, 0.12);
-    border: 1px solid rgba(179, 143, 56, 0.28);
-    color: #8C6B1C;
-    font-size: 11px;
-    font-weight: 800;
-    padding: 3px 10px;
-    border-radius: 9999px;
-  }
-
-  .reviewStayCategory {
-    font-size: 12px;
-    color: #78716C;
-  }
-
-  .carouselNavBtn {
+  /* Carousel Navigation Buttons */
+  .galleryNavBtn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
     background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(195, 175, 145, 0.45);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #1C1917;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1C1917;
-    box-shadow: 0 4px 12px rgba(45, 35, 25, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
     transition: all 0.2s ease;
     z-index: 10;
   }
 
-  .carouselNavBtn:hover {
+  .galleryNavBtn:hover {
     background: #FFFFFF;
-    color: #B38F38;
     transform: translateY(-50%) scale(1.06);
   }
 
-  .carouselBtnPrev { left: -20px; }
-  .carouselBtnNext { right: -20px; }
+  .galleryPrevBtn { left: 14px; }
+  .galleryNextBtn { right: 14px; }
 
-  @media (max-width: 768px) {
-    .carouselBtnPrev { left: -10px; }
-    .carouselBtnNext { right: -10px; }
+  /* Gallery Dots & Counter */
+  .galleryMetaBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding: 0 8px;
   }
 
-  .reviewsPaginationDots {
+  .galleryCounter {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  .galleryDots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .galleryDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(195, 175, 145, 0.45);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .galleryDot.active {
+    width: 22px;
+    border-radius: 9999px;
+    background: var(--gold-primary);
+  }
+
+  /* ==========================================
+     5. DEDICATED 8-ITEM AMENITIES CARD (NO OVERFLOW)
+     ========================================== */
+  .amenitiesDedicatedCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-luxury);
+    border-radius: 24px;
+    padding: 28px 22px;
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 28px;
+  }
+
+  .amenitiesHeader {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .amenitiesBadge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-primary);
+    background: var(--gold-subtle);
+    border: 1px solid var(--gold-border);
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+  }
+
+  .amenitiesTitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.25;
+  }
+
+  .amenitiesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
+    .amenitiesGrid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+  }
+
+  .amenityCell {
+    background: #FFFFFF;
+    border: 1px solid rgba(195, 175, 145, 0.35);
+    border-radius: 16px;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(45, 35, 25, 0.03);
+    min-width: 0;
+    word-break: break-word;
+  }
+
+  .amenityCell:hover {
+    border-color: var(--border-luxury-active);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 35, 25, 0.07);
+  }
+
+  .amenityIconCircle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold-subtle);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+    color: var(--gold-primary);
+  }
+
+  .amenityName {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+  }
+
+  .amenitySub {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+
+  /* ==========================================
+     6. RESORT & SPA COMPLEX (SEPARATED & CLEAR)
+     ========================================== */
+  .resortSectionCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-luxury);
+    border-radius: 28px;
+    padding: 32px 24px;
+    box-shadow: var(--shadow-card);
+    margin-top: 35px;
+  }
+
+  .resortSurchargeBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #8C6A20;
+    background: rgba(179, 143, 56, 0.12);
+    border: 1px solid rgba(179, 143, 56, 0.3);
+    padding: 5px 14px;
+    border-radius: 9999px;
+    margin-bottom: 14px;
+  }
+
+  .resortGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .resortGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .resortTile {
+    background: #FFFFFF;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(195, 175, 145, 0.35);
+    box-shadow: 0 4px 15px rgba(45, 35, 25, 0.04);
+    transition: transform 0.25s ease;
+  }
+
+  .resortTile:hover {
+    transform: translateY(-3px);
+  }
+
+  .resortTileImgWrapper {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .resortTileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .resortTile:hover .resortTileImg {
+    transform: scale(1.05);
+  }
+
+  .resortTileBody {
+    padding: 16px 14px;
+  }
+
+  .resortTileTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .resortTileDesc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.45;
+  }
+
+  /* ==========================================
+     7. MINIMAL, SYMMETRICAL REVIEWS CAROUSEL
+     ========================================== */
+  .reviewsWrapper {
+    padding: 70px 20px;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .ratingSymmetricalPill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
-    margin-top: 18px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-luxury);
+    padding: 8px 18px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 15px rgba(45, 35, 25, 0.04);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+  }
+
+  .pillStarIcon {
+    color: var(--gold-primary);
+    font-size: 14px;
+  }
+
+  .pillScore {
+    color: var(--gold-primary);
+  }
+
+  .pillDot {
+    color: rgba(195, 175, 145, 0.6);
+  }
+
+  .reviewCarouselContainer {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-luxury);
+    border-radius: 28px;
+    padding: 38px 24px 30px;
+    box-shadow: var(--shadow-card);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .reviewSlideItem {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .reviewSlideItem.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reviewStars {
+    color: var(--gold-primary);
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .reviewQuoteText {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(17px, 2.8vw, 22px);
+    line-height: 1.55;
+    color: var(--text-primary);
+    margin-bottom: 22px;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reviewAuthor {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .reviewStayTag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-primary);
+    background: var(--gold-subtle);
+    padding: 3px 12px;
+    border-radius: 9999px;
+  }
+
+  /* Symmetrical Bottom Navigation Controls (Arrows NEVER overlap text) */
+  .reviewNavBottomBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(195, 175, 145, 0.25);
+  }
+
+  .reviewArrowBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid var(--border-luxury);
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(45, 35, 25, 0.05);
+    transition: all 0.2s ease;
+  }
+
+  .reviewArrowBtn:hover {
+    background: var(--gold-primary);
+    color: #FFFFFF;
+    border-color: var(--gold-primary);
+  }
+
+  .reviewDotsContainer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   .reviewDot {
@@ -1104,1175 +881,855 @@
     border-radius: 50%;
     background: rgba(195, 175, 145, 0.45);
     cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .reviewDot.activeDot {
-    background: #B38F38;
-    width: 22px;
-    border-radius: 9999px;
-  }
-
-  /* ==========================================
-     6. DIRECT WHATSAPP BOOKING CONCIERGE
-     ========================================== */
-  .contactSection {
-    position: relative;
-    padding: 80px 20px 100px;
-    background: var(--bg-page);
-  }
-
-  .compactBookingCard {
-    background: var(--bg-card);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border: 1px solid var(--border-luxury);
-    border-radius: 24px;
-    padding: 36px 30px;
-    max-width: 580px;
-    margin: 0 auto;
-    box-shadow: var(--shadow-card);
-    text-align: center;
-  }
-
-  .bookingKicker {
-    display: inline-block;
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #8C6B1C;
-    margin-bottom: 8px;
-  }
-
-  .bookingCardTitle {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(26px, 3.6vw, 36px);
-    font-weight: 700;
-    color: #1C1917;
-    margin-bottom: 10px;
-  }
-
-  .bookingCardSubtitle {
-    font-size: 14.5px;
-    color: #57534E;
-    line-height: 1.55;
-    margin-bottom: 24px;
-  }
-
-  .bookingFieldsGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    text-align: left;
-    margin-bottom: 20px;
-  }
-
-  .bookingFieldGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .bookingFieldGroup.fullWidth {
-    grid-column: span 2;
-  }
-
-  .fieldLabel {
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #44403C;
-  }
-
-  .compactFieldInput {
-    width: 100%;
-    min-width: 0 !important;
-    background: #FFFFFF;
-    border: 1px solid rgba(195, 175, 145, 0.45);
-    border-radius: 10px;
-    padding: 10px 12px;
-    color: #1C1917;
-    font-size: 14px;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .compactFieldInput:focus {
-    outline: none;
-    border-color: #B38F38;
-    box-shadow: 0 0 0 3px rgba(179, 143, 56, 0.15);
-  }
-
-  .bookingSubmitBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    background: linear-gradient(135deg, #D4AF37 0%, #B38F38 100%);
-    color: #1C1917;
-    border: 1px solid rgba(179, 143, 56, 0.6);
-    border-radius: 9999px;
-    padding: 14px 24px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(179, 143, 56, 0.28);
     transition: all 0.25s ease;
   }
 
-  .bookingSubmitBtn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(179, 143, 56, 0.4);
-  }
-
-  .bookingNoteSavings {
-    font-size: 12px;
-    color: #78716C;
-    margin-top: 12px;
-  }
-
-  @media (max-width: 480px) {
-    .bookingFieldsGrid {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    .bookingFieldGroup.fullWidth {
-      grid-column: span 1;
-    }
-    .compactBookingCard {
-      padding: 26px 18px;
-    }
+  .reviewDot.active {
+    width: 22px;
+    border-radius: 9999px;
+    background: var(--gold-primary);
   }
 
   /* ==========================================
-     7. STICKY MOBILE BOOKING BAR
+     8. COMPACT MINIMAL BOOKING & AVAILABILITY CARD
      ========================================== */
-  .mobileStickyBookingBar {
-    display: none;
+  .bookingCardWrapper {
+    padding: 50px 20px 100px;
+    max-width: 680px;
+    margin: 0 auto;
   }
 
-  @media (max-width: 768px) {
-    .mobileStickyBookingBar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 999;
-      display: flex !important;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 16px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-top: 1px solid rgba(195, 175, 145, 0.4);
-      box-shadow: 0 -4px 20px rgba(45, 35, 25, 0.08);
-      transform: translateY(120%) !important;
-      opacity: 0;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .mobileStickyBookingBar.is-visible {
-      transform: translateY(0) !important;
-      opacity: 1 !important;
-      pointer-events: auto;
-    }
-
-    .stickyBarRateCol {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .stickyBarRateLabel {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #78716C;
-    }
-
-    .stickyBarRateValue {
-      font-size: 18px;
-      font-weight: 800;
-      color: #1C1917;
-    }
-
-    .stickyBarRateValue small {
-      font-size: 11px;
-      font-weight: 500;
-      color: #78716C;
-    }
-
-    .stickyBarActionBtn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, #D4AF37 0%, #B38F38 100%);
-      color: #1C1917;
-      border: 1px solid rgba(179, 143, 56, 0.6);
-      border-radius: 9999px;
-      padding: 9px 18px;
-      font-size: 13px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(179, 143, 56, 0.25);
-    }
+  .bookingCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-luxury);
+    border-radius: 28px;
+    padding: 34px 24px;
+    box-shadow: var(--shadow-card);
   }
 
-  /* ==========================================
-     8. LUXURY FOOTER
-     ========================================== */
-  .luxuryFooter {
-    background: #F4EFEA;
-    border-top: 1px solid rgba(195, 175, 145, 0.3);
-    padding: 34px 20px;
+  .bookingHeader {
     text-align: center;
+    margin-bottom: 24px;
   }
 
-  .footerBrandName {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #1C1917;
+  .bookingKicker {
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-primary);
     margin-bottom: 6px;
   }
 
-  .footerNotice {
-    font-size: 13px;
-    color: #78716C;
+  .bookingTitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .bookingDesc {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .bookingFormGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 600px) {
+    .bookingFormGrid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .formFieldFull {
+      grid-column: span 2;
+    }
+  }
+
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+  }
+
+  .formLabel {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+  }
+
+  .formInput, .formSelect {
+    height: 46px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(195, 175, 145, 0.45);
+    background: #FFFFFF;
+    font-size: 14px;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .formInput:focus, .formSelect:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 0 3px rgba(179, 143, 56, 0.15);
+  }
+
+  .priceCalculationBox {
+    background: #FFFFFF;
+    border: 1px solid rgba(195, 175, 145, 0.4);
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 14px rgba(45, 35, 25, 0.04);
+  }
+
+  .priceLeftLabel {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .priceLeftSub {
+    font-size: 12px;
+    color: #10B981;
+    font-weight: 600;
+  }
+
+  .priceRightVal {
+    text-align: right;
+  }
+
+  .priceAmount {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .priceUnit {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .submitBookingBtn {
+    margin-top: 18px;
+    width: 100%;
+    height: 52px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #E6C665, #B38F38);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #1A1612;
+    font-size: 15px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(179, 143, 56, 0.35);
+    transition: all 0.25s ease;
+  }
+
+  .submitBookingBtn:hover {
+    background: linear-gradient(135deg, #F0D57D, #C59F44);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(179, 143, 56, 0.5);
+  }
+
+  /* ==========================================
+     9. SWIPE-UP DISMISSIBLE STICKY BOTTOM BAR
+     ========================================== */
+  .mobileStickyBar {
+    position: fixed;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    z-index: 990;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 10px 14px;
+    background: rgba(28, 25, 23, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(195, 175, 145, 0.35);
+    border-radius: 9999px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    transform: translateY(120%);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  .mobileStickyBar.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .stickyPriceGroup {
+    display: flex;
+    flex-direction: column;
+    padding-left: 6px;
+  }
+
+  .stickyRateLabel {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .stickyPriceVal {
+    font-size: 17px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.2;
+  }
+
+  .stickyNight {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .stickyWhatsAppBtn {
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #E6C665, #B38F38);
+    color: #1A1612;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(179, 143, 56, 0.35);
+    white-space: nowrap;
+    transition: transform 0.2s ease;
+  }
+
+  .stickyWhatsAppBtn:hover {
+    transform: scale(1.02);
+  }
+
+  /* Host Bio Footer */
+  .footerSection {
+    background: #1C1917;
+    color: #FAF7F2;
+    padding: 50px 20px 80px;
+    text-align: center;
+  }
+
+  .footerHostCard {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .hostBadge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #D4AF37;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .hostTitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .hostDesc {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .footerCopyright {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
   }
 </style>
 </head>
-
 <body>
 
-<!-- Subtle paper film grain -->
-<div class="paperFilmGrain"></div>
+<!-- Ambient Paper Grain -->
+<div class="paperFilmGrain" aria-hidden="true"></div>
 
-<!-- 1. SYMMETRICAL TOP NAVBAR -->
+<!-- 1. SYMMETRICAL LIQUID GLASS TOP NAV BAR -->
 <header class="topNavWrapper">
-  <nav class="symmetricalNavBar" aria-label="Main Navigation">
-    <!-- Button 1: Reviews -->
-    <a href="#guestReviews" class="navPillBtn navReviewsBtn" id="navBtnReviews">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="#B38F38"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      <span data-i18n="nav_reviews">Reviews</span>
+  <nav class="liquidGlassNavBar" aria-label="Main Navigation">
+    <a href="#reviews" class="navPillBtn navReviewsBtn">
+      <span class="pillStar">★</span>
+      <span data-en="Reviews" data-ru="Отзывы">Reviews</span>
     </a>
-
-    <!-- Button 2: Language Switcher EN | RU -->
-    <div class="navLangTogglePill" id="navLangPill">
-      <button type="button" class="langChoiceBtn activeLang" id="btnLangEn" onclick="switchLanguage('en')">EN</button>
-      <span class="langDividerSlash">/</span>
-      <button type="button" class="langChoiceBtn" id="btnLangRu" onclick="switchLanguage('ru')">RU</button>
+    <div class="navPillBtn navLangToggle" id="langToggleBtn" onclick="toggleLanguage()" role="button" aria-label="Toggle Language EN RU">
+      <span class="langOpt active" id="langEn">EN</span>
+      <span class="langSep">/</span>
+      <span class="langOpt" id="langRu">RU</span>
     </div>
-
-    <!-- Button 3: Booking Navigation -->
-    <a href="#directBooking" class="navPillBtn navBookBtn" id="navBtnBooking">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-      <span data-i18n="nav_booking">Booking</span>
+    <a href="#booking" class="navPillBtn navBookBtn">
+      <span data-en="Book Direct" data-ru="Бронь">Book Direct</span>
     </a>
   </nav>
 </header>
 
-<main>
-  <!-- 2. COMMANDING ALPINE HERO SECTION (100SVH) -->
-  <section class="heroSection">
-    <div class="heroBgContainer">
-      <img src="images/mountain_orchid/new_gudauri_sunny_hero_4k.jpg" alt="New Gudauri Ski Resort Village and Caucasus Peaks" class="heroCoverImage" fetchpriority="high">
-      <div class="heroCinematicScrim"></div>
-    </div>
+<!-- 2. 100SVH MINIMAL WELCOMING ALPINE HERO -->
+<section class="heroSection" id="hero">
+  <img src="images/mountain_orchid/new_gudauri_sunny_hero_4k.jpg" alt="Sunny panoramic view of New Gudauri ski resort chalets and Caucasus mountain peaks" class="heroBgImage" loading="eager">
+  <div class="heroOverlay" aria-hidden="true"></div>
 
-    <div class="heroCenterContent">
-      <div class="heroMinimalBadge">
-        <span class="spark">✦</span> <span data-i18n="badge_hero_kicker">New Gudauri Ski Resort • Caucasus Peaks</span>
-      </div>
+  <!-- Symmetrical Centered Content -->
+  <div class="heroContent">
+    <h1 class="heroTitle" data-en="Apartment Mountain Orchid" data-ru="Апартаменты Mountain Orchid">Apartment Mountain Orchid</h1>
+    <p class="heroSubtitle" data-en="Luxury Alpine Residence in New Gudauri" data-ru="Роскошная альпийская резиденция в Новом Гудаури">Luxury Alpine Residence in New Gudauri</p>
+    <p class="heroDesc" data-en="A warm alpine sanctuary in the snow peaks of Gudauri. Experience true Georgian hospitality with panoramic mountain vistas and direct booking privilege." data-ru="Уютное альпийское убежище среди заснеженных вершин Гудаури. Настоящее грузинское гостеприимство с панорамными горными видами и прямым бронированием.">A warm alpine sanctuary in the snow peaks of Gudauri. Experience true Georgian hospitality with panoramic mountain vistas and direct booking privilege.</p>
 
-      <h1 class="heroMainTitle">
-        Apartment Mountain Orchid
-        <span class="heroTitleAccent" data-i18n="hero_title_accent">Luxury Alpine Residence in New Gudauri</span>
-      </h1>
-
-      <p class="heroSubtitle" data-i18n="hero_subtitle">
-        A warm alpine sanctuary in the snow peaks of Gudauri. Experience true Georgian hospitality with panoramic mountain vistas and direct booking privilege.
-      </p>
-
-      <div class="heroMinimalActionWrap">
-        <a href="#stayExperience" class="heroMinimalExploreBtn">
-          <span data-i18n="hero_btn_explore">Explore The Residence</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Smooth Marquee Ticker -->
-    <div class="heroBottomBar">
-      <div class="marqueeLuxuryRibbon">
-        <div class="marqueeTrack">
-          <div class="marqueeGroup" id="marqueeGroup1">
-            <span class="marqueeItem"><span class="marqueeHighlightNum">★ 9.4</span> <span data-i18n="mq_1">Superb on Booking.com</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">★ 9.8</span> <span data-i18n="mq_2">Host & Cleanliness Score</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">0%</span> <span data-i18n="mq_3">Commission on Direct Booking</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">2 Min</span> <span data-i18n="mq_4">Walk to Pirveli Ski Gondola</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">Balcony</span> <span data-i18n="mq_5">Panoramic Caucasus Peaks View</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">Heated Pool</span> <span data-i18n="mq_6">Spa & Sauna in Complex</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">Ski Depot</span> <span data-i18n="mq_7">Secure Ski Storage Locker</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">Full Kitchen</span> <span data-i18n="mq_8">Stove, Microwave & Bosch Kettle</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">High-Speed</span> <span data-i18n="mq_9">Wi-Fi & Flat Screen Smart TV</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">100%</span> <span data-i18n="mq_10">Warm Hospitality by Host Manana</span></span><span class="marqueeDot">✦</span>
-          </div>
-          <div class="marqueeGroup" id="marqueeGroup2" aria-hidden="true">
-            <span class="marqueeItem"><span class="marqueeHighlightNum">★ 9.4</span> <span data-i18n="mq_1">Superb on Booking.com</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">★ 9.8</span> <span data-i18n="mq_2">Host & Cleanliness Score</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">0%</span> <span data-i18n="mq_3">Commission on Direct Booking</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">2 Min</span> <span data-i18n="mq_4">Walk to Pirveli Ski Gondola</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">Balcony</span> <span data-i18n="mq_5">Panoramic Caucasus Peaks View</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">Heated Pool</span> <span data-i18n="mq_6">Spa & Sauna in Complex</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">Ski Depot</span> <span data-i18n="mq_7">Secure Ski Storage Locker</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">Full Kitchen</span> <span data-i18n="mq_8">Stove, Microwave & Bosch Kettle</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">High-Speed</span> <span data-i18n="mq_9">Wi-Fi & Flat Screen Smart TV</span></span><span class="marqueeDot">✦</span>
-            <span class="marqueeItem"><span class="marqueeHighlightNum">100%</span> <span data-i18n="mq_10">Warm Hospitality by Host Manana</span></span><span class="marqueeDot">✦</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. STAY EXPERIENCE & LUXURY GALLERIES -->
-  <section id="stayExperience" class="staySection">
-    <div class="sectionContainer">
-      <div class="sectionHeaderCenter">
-        <span class="sectionKickerBadge" data-i18n="stay_kicker">Alpine Living & Resort Wellness</span>
-        <h2 class="sectionMainTitle" data-i18n="stay_title">Two Dimensions of Comfort in Gudauri</h2>
-        <p class="sectionDescription" data-i18n="stay_desc">
-          Choose your perspective: explore the private 35m² luxury residence with its signature tea balcony and warm interiors, or discover the complete resort facilities including indoor heated pool, après-ski sun terraces, and lift proximity.
-        </p>
-
-        <div class="stayTabsCluster">
-          <button id="btnSelectResidence" class="modernTabBtn activeModernTab" onclick="displayStay('residence')" data-i18n="tab_residence">
-            The Private Residence
-          </button>
-          <button id="btnSelectResort" class="modernTabBtn" onclick="displayStay('resort')" data-i18n="tab_resort">
-            Resort Complex & Spa
-          </button>
-        </div>
-      </div>
-
-      <!-- PANE 1: THE PRIVATE RESIDENCE -->
-      <div id="residenceDisplayPane" class="stayPane">
-        <div class="cinematicPhotoStage" id="residenceStageBox">
-          <div id="residenceSlidesBox" class="slidesTrack">
-            <div class="photoSlide activePhotoSlide" data-caption-en="Private Balcony • Tea Time with Caucasus Mountain Views" data-caption-ru="Видовой балкон • Чайный столик с видом на горы Кавказа">
-              <img src="images/mountain_orchid/126164321.jpg" alt="Balcony Tea Time" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Private Balcony • Tea Time with Caucasus Mountain Views</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Warm Living Quarters • Smart TV & Heated Alpine Lounge" data-caption-ru="Уютная гостиная • Smart TV и тёплая зона отдыха">
-              <img src="images/mountain_orchid/126164186.jpg" alt="Living & TV" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Warm Living Quarters • Smart TV & Heated Alpine Lounge</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Comfortable Bedroom • Crisp Hotel-Grade Linen" data-caption-ru="Спальня с удобной кроватью • Белоснежное бельё">
-              <img src="images/mountain_orchid/165314659.jpg" alt="Master Bed" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Comfortable Bedroom • Crisp Hotel-Grade Linen</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Contemporary Studio Space • Hardwood Flooring" data-caption-ru="Современная студия • Тёплые деревянные полы">
-              <img src="images/mountain_orchid/126171985.jpg" alt="Studio Lounge" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Contemporary Studio Space • Hardwood Flooring</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Equipped Kitchenette • Stove, Microwave & Bosch Kettle" data-caption-ru="Кухня со всей техникой • Плита, СВЧ и чайник Bosch">
-              <img src="images/mountain_orchid/126172055.jpg" alt="Kitchenette" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Equipped Kitchenette • Stove, Microwave & Bosch Kettle</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Pristine Bathroom • Rain Shower & Heated Towel Racks" data-caption-ru="Ванная комната • Тропический душ и тёплые сушилки">
-              <img src="images/mountain_orchid/126165357.jpg" alt="Rain Shower" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Pristine Bathroom • Rain Shower & Heated Towel Racks</span>
-            </div>
-            <div class="photoSlide" data-caption-en="In-Unit Washing Machine • Fresh Gear Laundry" data-caption-ru="Стиральная машина • Стирка лыжной экипировки">
-              <img src="images/mountain_orchid/126165332.jpg" alt="Vanity & Laundry" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">In-Unit Washing Machine • Fresh Gear Laundry</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Snowy Balcony View • Direct Glimpse of Gudauri Slopes" data-caption-ru="Вид с балкона • Панорама горнолыжных склонов">
-              <img src="images/mountain_orchid/221368820.jpg" alt="Balcony Snow" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Snowy Balcony View • Direct Glimpse of Gudauri Slopes</span>
-            </div>
-          </div>
-
-          <button type="button" class="stageArrowBtn stageArrowPrev" aria-label="Previous photo" onclick="prevResidencePhoto()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-          <button type="button" class="stageArrowBtn stageArrowNext" aria-label="Next photo" onclick="nextResidencePhoto()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
-        </div>
-
-        <div id="residenceThumbsRibbon" class="thumbsRow">
-          <div class="ribbonThumb activeRibbonThumb" onclick="jumpResidencePhoto(0)"><img src="images/mountain_orchid/126164321.jpg" alt="Balcony Tea Time" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResidencePhoto(1)"><img src="images/mountain_orchid/126164186.jpg" alt="Living & TV" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResidencePhoto(2)"><img src="images/mountain_orchid/165314659.jpg" alt="Master Bed" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResidencePhoto(3)"><img src="images/mountain_orchid/126171985.jpg" alt="Studio Lounge" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResidencePhoto(4)"><img src="images/mountain_orchid/126172055.jpg" alt="Kitchenette" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResidencePhoto(5)"><img src="images/mountain_orchid/126165357.jpg" alt="Rain Shower" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResidencePhoto(6)"><img src="images/mountain_orchid/126165332.jpg" alt="Vanity & Laundry" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResidencePhoto(7)"><img src="images/mountain_orchid/221368820.jpg" alt="Balcony Snow" class="thumbImg"></div>
-        </div>
-
-        <div class="stayEditorialPure">
-          <h3 class="stayEditorialTitle" data-i18n="residence_editorial_title">Apartment Mountain Orchid • Your Warm Alpine Home</h3>
-          <p class="stayEditorialParagraph" data-i18n="residence_editorial_p">
-            Nestled at 2,200 meters in New Gudauri Aparthotel 4, this 35-square-meter studio residence combines contemporary alpine luxury with the heartwarming hospitality of host Manana. After an exhilarating day carving fresh powder on Mount Kudebi, return to a warmly heated sanctuary featuring a comfortable double bed with crisp linen, a versatile sofa bed, an elegant dining area, and a private balcony overlooking the snowy resort.
-          </p>
-
-          <!-- COMPACT FEATURE MATRIX (High Speed Clarity, Zero Vertical Waste) -->
-          <div class="stayFeatureMatrix">
-            <div class="featureMatrixItem">
-              <div class="featureMatrixIcon">☕</div>
-              <div class="featureMatrixText">
-                <strong data-i18n="am_balcony_title">Private Balcony</strong>
-                <span data-i18n="am_balcony_sub">Tea corner & snow peak vistas</span>
-              </div>
-            </div>
-            <div class="featureMatrixItem">
-              <div class="featureMatrixIcon">🎿</div>
-              <div class="featureMatrixText">
-                <strong data-i18n="am_ski_title">2 Min to Ski Gondola</strong>
-                <span data-i18n="am_ski_sub">Instant slope & lift access</span>
-              </div>
-            </div>
-            <div class="featureMatrixItem">
-              <div class="featureMatrixIcon">🍳</div>
-              <div class="featureMatrixText">
-                <strong data-i18n="am_kitchen_title">Full Kitchenette</strong>
-                <span data-i18n="am_kitchen_sub">Stove, microwave & kettle</span>
-              </div>
-            </div>
-            <div class="featureMatrixItem">
-              <div class="featureMatrixIcon">🔒</div>
-              <div class="featureMatrixText">
-                <strong data-i18n="am_depot_title">Ski Depot Locker</strong>
-                <span data-i18n="am_depot_sub">Dedicated gear storage room</span>
-              </div>
-            </div>
-            <div class="featureMatrixItem">
-              <div class="featureMatrixIcon">📶</div>
-              <div class="featureMatrixText">
-                <strong data-i18n="am_wifi_title">High-Speed Wi-Fi</strong>
-                <span data-i18n="am_wifi_sub">Fast streaming & work</span>
-              </div>
-            </div>
-            <div class="featureMatrixItem">
-              <div class="featureMatrixIcon">🚿</div>
-              <div class="featureMatrixText">
-                <strong data-i18n="am_shower_title">Rain Shower & Heat</strong>
-                <span data-i18n="am_shower_sub">Heated towel rack & radiator</span>
-              </div>
-            </div>
-            <div class="featureMatrixItem">
-              <div class="featureMatrixIcon">🧺</div>
-              <div class="featureMatrixText">
-                <strong data-i18n="am_washer_title">In-Unit Washer</strong>
-                <span data-i18n="am_washer_sub">Laundry, iron & board</span>
-              </div>
-            </div>
-            <div class="featureMatrixItem">
-              <div class="featureMatrixIcon">👥</div>
-              <div class="featureMatrixText">
-                <strong data-i18n="am_capacity_title">Up to 4 Guests</strong>
-                <span data-i18n="am_capacity_sub">Queen bed + sofa bed</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="compactInclusionsBadge">
-            <span class="spark">✦</span> <span data-i18n="residence_included_note">100% Private Apartment Amenities • Fully Included in Your Direct Reservation</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PANE 2: RESORT COMPLEX & SPA -->
-      <div id="resortDisplayPane" class="stayPane hiddenStayPane">
-        <div class="cinematicPhotoStage" id="resortStageBox">
-          <div id="resortSlidesBox" class="slidesTrack">
-            <div class="photoSlide activePhotoSlide" data-caption-en="Heated Indoor Pool & Spa • Wellness Center" data-caption-ru="Крытый подогреваемый бассейн и спа в комплексе">
-              <img src="images/mountain_orchid/126166185.jpg" alt="Indoor Pool & Spa" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Heated Indoor Pool & Spa • Wellness Center</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Cedarwood Dry Sauna • Post-Ski Muscle Recovery" data-caption-ru="Кедровая сауна для восстановления после катания">
-              <img src="images/mountain_orchid/126167845.jpg" alt="Cedarwood Sauna" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Cedarwood Dry Sauna • Post-Ski Muscle Recovery</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Sun-Drenched Alpine Terrace • Panoramic Caucasus Peaks" data-caption-ru="Солнечная альпийская терраса с видом на вершины Кавказа">
-              <img src="images/mountain_orchid/221369579.jpg" alt="Sun Terrace" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Sun-Drenched Alpine Terrace • Panoramic Caucasus Peaks</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Ski Depot & Lockers • Direct Gondola Access" data-caption-ru="Лыжное депо и шкафчики у подъемника">
-              <img src="images/mountain_orchid/126167908.jpg" alt="Ski Storage Depot" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Ski Depot & Lockers • Direct Gondola Access</span>
-            </div>
-            <div class="photoSlide" data-caption-en="New Gudauri Courtyard • Evening Lights & Chalets" data-caption-ru="Двор Нового Гудаури • Вечерние огни и шале">
-              <img src="images/mountain_orchid/126166025.jpg" alt="Evening Courtyard" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">New Gudauri Courtyard • Evening Lights & Chalets</span>
-            </div>
-            <div class="photoSlide" data-caption-en="Aparthotel 4 Residence Facade • Alpine Architecture" data-caption-ru="Фасад апарт-отеля 4 • Альпийская архитектура">
-              <img src="images/mountain_orchid/new_gudauri_aparthotel4_clean.jpg" alt="Aparthotel 4 Facade" class="slideHeroImg" loading="lazy">
-              <span class="photoCaptionTag">Aparthotel 4 Residence Facade • Alpine Architecture</span>
-            </div>
-          </div>
-
-          <button type="button" class="stageArrowBtn stageArrowPrev" aria-label="Previous photo" onclick="prevResortPhoto()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-          <button type="button" class="stageArrowBtn stageArrowNext" aria-label="Next photo" onclick="nextResortPhoto()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
-        </div>
-
-        <div id="resortThumbsRibbon" class="thumbsRow">
-          <div class="ribbonThumb activeRibbonThumb" onclick="jumpResortPhoto(0)"><img src="images/mountain_orchid/126166185.jpg" alt="Pool & Spa" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResortPhoto(1)"><img src="images/mountain_orchid/126167845.jpg" alt="Cedarwood Sauna" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResortPhoto(2)"><img src="images/mountain_orchid/221369579.jpg" alt="Sun Terrace" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResortPhoto(3)"><img src="images/mountain_orchid/126167908.jpg" alt="Ski Storage Depot" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResortPhoto(4)"><img src="images/mountain_orchid/126166025.jpg" alt="Evening Courtyard" class="thumbImg"></div>
-          <div class="ribbonThumb" onclick="jumpResortPhoto(5)"><img src="images/mountain_orchid/new_gudauri_aparthotel4_clean.jpg" alt="Aparthotel 4" class="thumbImg"></div>
-        </div>
-
-        <div class="stayEditorialPure">
-          <h3 class="stayEditorialTitle" data-i18n="resort_editorial_title">New Gudauri Resort Amenities & Wellness</h3>
-          <p class="stayEditorialParagraph" data-i18n="resort_editorial_p">
-            Located in the heart of New Gudauri, Aparthotel 4 grants immediate proximity to fine Georgian restaurants, craft wine bars, ski equipment rental shops, and the Pirveli ski gondola. The complex also features an indoor swimming pool, cedarwood sauna, and comprehensive fitness facilities.
-          </p>
-
-          <div class="resortNoticeBadge">
-            <span style="font-size: 16px; color: #B38F38;">ℹ</span>
-            <span data-i18n="resort_notice">Resort wellness facilities (indoor pool, sauna, fitness & spa treatments) are operated by New Gudauri complex and available à la carte (not included in room rate).</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. RATES & SEASONAL PRICING STRIP -->
-      <div class="compactPricingStrip" id="pricingDetails">
-        <div class="pricingStripTop">
-          <h4 class="pricingStripTitle" data-i18n="pricing_title">Seasonal Direct Rates & Inclusions</h4>
-          <div class="pricingSeasonCluster">
-            <button type="button" id="btnPriceWinter" class="pricingToggleBtn activePricingToggle" onclick="displayPricing('winter')" data-i18n="price_tab_winter">Winter Peak</button>
-            <button type="button" id="btnPriceSpring" class="pricingToggleBtn" onclick="displayPricing('spring')" data-i18n="price_tab_spring">Spring / Autumn</button>
-          </div>
-        </div>
-
-        <div class="pricingGridRow" id="pricingPaneWinter">
-          <div class="pricingStripCol">
-            <span class="pricingStripLabel" data-i18n="price_lbl_night">Direct Host Rate</span>
-            <span class="pricingStripValue"><strong class="rateBigPrice">$85</strong> <small data-i18n="price_per_night">/ night</small></span>
-          </div>
-          <div class="pricingStripCol">
-            <span class="pricingStripLabel" data-i18n="price_lbl_ota">Booking.com Rate</span>
-            <span class="pricingStripValue" style="text-decoration: line-through; color: #78716C;">$105 – $115</span>
-          </div>
-          <div class="pricingStripCol">
-            <span class="pricingStripLabel" data-i18n="price_lbl_savings">Your Direct Savings</span>
-            <span class="pricingStripValue" style="color: #15803D;">Save 15% – 20% (0% Fee)</span>
-          </div>
-          <div class="pricingStripCol">
-            <span class="pricingStripLabel" data-i18n="price_lbl_capacity">Capacity & Setup</span>
-            <span class="pricingStripValue">1 – 4 <small data-i18n="price_guests">guests</small></span>
-          </div>
-        </div>
-
-        <div class="pricingGridRow" id="pricingPaneSpring" style="display: none;">
-          <div class="pricingStripCol">
-            <span class="pricingStripLabel" data-i18n="price_lbl_night">Direct Host Rate</span>
-            <span class="pricingStripValue"><strong class="rateBigPrice">$60</strong> <small data-i18n="price_per_night">/ night</small></span>
-          </div>
-          <div class="pricingStripCol">
-            <span class="pricingStripLabel" data-i18n="price_lbl_ota">Booking.com Rate</span>
-            <span class="pricingStripValue" style="text-decoration: line-through; color: #78716C;">$75 – $85</span>
-          </div>
-          <div class="pricingStripCol">
-            <span class="pricingStripLabel" data-i18n="price_lbl_savings">Your Direct Savings</span>
-            <span class="pricingStripValue" style="color: #15803D;">Save 20% Direct</span>
-          </div>
-          <div class="pricingStripCol">
-            <span class="pricingStripLabel" data-i18n="price_lbl_capacity">Capacity & Setup</span>
-            <span class="pricingStripValue">1 – 4 <small data-i18n="price_guests">guests</small></span>
-          </div>
-        </div>
-
-        <div class="pricingStripFooter">
-          <p class="pricingFooterNote" data-i18n="pricing_footer_note">
-            * Direct reservations are confirmed immediately with host Manana. 0% booking commission and no hidden platform fees.
-          </p>
-          <a href="#directBooking" onclick="openWhatsAppInquiry()" class="pricingFooterCtaBtn" data-i18n="pricing_footer_cta">Check Your Dates on WhatsApp →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. 100% SYMMETRICAL GUEST REVIEWS SECTION -->
-  <section id="guestReviews" class="reviewsSection">
-    <div class="sectionContainer">
-      <div class="reviewsMinimalHeader">
-        <span class="reviewsMinimalKicker" data-i18n="reviews_kicker">✦ VERIFIED GUEST EXPERIENCES</span>
-        <h2 class="reviewsMinimalTitle" data-i18n="reviews_heading">What Our Guests Say</h2>
-        
-        <!-- 100% SUPER SYMMETRICAL REVIEWS SCORE BADGE -->
-        <div class="reviewsScoreBadgeSymmetrical">
-          <span class="scoreRatingGold">★ 9.4 / 10</span>
-          <span class="scoreDividerDot">•</span>
-          <span class="scorePlatformText" data-i18n="reviews_badge_subtext">Superb on Booking.com • 15+ Verified Reviews</span>
-        </div>
-      </div>
-
-      <div class="reviewsCarouselStage" id="reviewsStageBox">
-        <button type="button" class="carouselNavBtn carouselBtnPrev" id="btnPrevReview" aria-label="Previous review" onclick="prevReview()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-
-        <div class="reviewsCardsTrack" id="reviewsTrackBox">
-          <div class="reviewCard activeReviewCard" id="reviewCardDisplay">
-            <div class="reviewStarsRow">★★★★★</div>
-            <p class="reviewQuoteText" id="reviewQuoteText">
-              "Wonderful apartment in New Gudauri, perfectly matches the description and photos. Fast check-in, excellent Wi-Fi, and a breathtaking mountain view from the balcony. Walking distance to lifts, parking, ski storage. Host Manana is simply exceptional!"
-            </p>
-            <div class="reviewGuestMetaBox">
-              <span class="reviewAuthorName" id="reviewAuthorName">Oksana • Russia</span>
-              <div class="reviewBadgesRow">
-                <span class="reviewSourcePill">Booking.com • Verified</span>
-                <span class="reviewScorePill" id="reviewScorePill">★ 10 / 10</span>
-              </div>
-              <span class="reviewStayCategory" id="reviewAuthorMeta">Family Mountain Holiday</span>
-            </div>
-          </div>
-        </div>
-
-        <button type="button" class="carouselNavBtn carouselBtnNext" id="btnNextReview" aria-label="Next review" onclick="nextReview()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-      </div>
-
-      <!-- 8 Verified Review Pagination Dots -->
-      <div class="reviewsPaginationDots" id="reviewsDotsBox">
-        <div class="reviewDot activeDot" onclick="jumpReview(0)"></div>
-        <div class="reviewDot" onclick="jumpReview(1)"></div>
-        <div class="reviewDot" onclick="jumpReview(2)"></div>
-        <div class="reviewDot" onclick="jumpReview(3)"></div>
-        <div class="reviewDot" onclick="jumpReview(4)"></div>
-        <div class="reviewDot" onclick="jumpReview(5)"></div>
-        <div class="reviewDot" onclick="jumpReview(6)"></div>
-        <div class="reviewDot" onclick="jumpReview(7)"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. DIRECT WHATSAPP BOOKING CONCIERGE -->
-  <section id="directBooking" class="contactSection">
-    <div class="compactBookingCard">
-      <span class="bookingKicker" data-i18n="contact_badge">✦ 0% Commission • Book Direct & Save</span>
-      <h3 class="bookingCardTitle" data-i18n="contact_heading">Check Availability with Host Manana</h3>
-      <p class="bookingCardSubtitle" data-i18n="contact_desc">
-        Bypass online travel agency surcharges and connect directly with Manana. Save 15% to 20% on your ski holiday in Gudauri while receiving personalized Georgian hospitality and rapid confirmation.
-      </p>
-
-      <div class="bookingFieldsGrid">
-        <div class="bookingFieldGroup">
-          <label class="fieldLabel" for="checkInDate" data-i18n="form_lbl_checkin">Check-in Date</label>
-          <input type="date" id="checkInDate" class="compactFieldInput">
-        </div>
-        <div class="bookingFieldGroup">
-          <label class="fieldLabel" for="checkOutDate" data-i18n="form_lbl_checkout">Check-out Date</label>
-          <input type="date" id="checkOutDate" class="compactFieldInput">
-        </div>
-        <div class="bookingFieldGroup">
-          <label class="fieldLabel" for="guestsCount" data-i18n="form_lbl_guests">Number of Guests</label>
-          <select id="guestsCount" class="compactFieldInput">
-            <option value="2 Guests (Couple / Friends)">2 Guests (Couple / Friends)</option>
-            <option value="1 Guest (Solo Traveler)">1 Guest (Solo Traveler)</option>
-            <option value="3 Guests (Family / Friends)">3 Guests (Family / Friends)</option>
-            <option value="4 Guests (Full Capacity)">4 Guests (Full Capacity)</option>
-          </select>
-        </div>
-        <div class="bookingFieldGroup">
-          <label class="fieldLabel" for="tripPurpose" data-i18n="form_lbl_trip">Trip Purpose</label>
-          <select id="tripPurpose" class="compactFieldInput">
-            <option value="Ski & Snowboarding Holiday">Ski & Snowboarding Holiday</option>
-            <option value="Romantic Alpine Getaway">Romantic Alpine Getaway</option>
-            <option value="Mountain Relaxation & Remote Work">Mountain Relaxation & Remote Work</option>
-          </select>
-        </div>
-      </div>
-
-      <button type="button" class="bookingSubmitBtn" onclick="openWhatsAppInquiry()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-        <span data-i18n="form_btn_whatsapp">Send Direct Inquiry via WhatsApp</span>
-      </button>
-
-      <p class="bookingNoteSavings" data-i18n="form_note_savings">
-        Direct price is 15% to 20% lower than Booking.com rates. No middleman.
-      </p>
-    </div>
-  </section>
-</main>
-
-<!-- 7. STICKY MOBILE BOOKING BAR (Scroll-Triggered) -->
-<div class="mobileStickyBookingBar" id="mobileStickyBar">
-  <div class="stickyBarRateCol">
-    <span class="stickyBarRateLabel" data-i18n="mobile_sticky_label">Direct Rate</span>
-    <span class="stickyBarRateValue">$85 <small data-i18n="price_per_night">/ night</small></span>
+    <!-- Explore Button with Down Arrow Underneath -->
+    <a href="#residence" class="heroExploreBtn">
+      <span class="exploreText" data-en="Explore The Residence" data-ru="Познакомиться с апартаментами">Explore The Residence</span>
+      <svg class="exploreDownArrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </a>
   </div>
-  <a href="#directBooking" onclick="openWhatsAppInquiry()" class="stickyBarActionBtn">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-    <span data-i18n="mobile_sticky_btn">WhatsApp Manana (0% Fee)</span>
-  </a>
+
+  <!-- Pure Transparent Floating Marquee Ticker -->
+  <div class="heroTickerWrapper" aria-label="Key Highlights">
+    <div class="heroTickerTrack">
+      <span class="tickerItem"><span class="tickerSpark">✦</span> 2,200m Alpine Elevation</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> 2 Min Walk to Gondola</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> Private Balcony Peak Views</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> Heated Ski Storage Depot</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> High Speed Wi-Fi</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> In-Unit Washer</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> Host Manana Direct</span>
+      <!-- Duplicate for seamless infinite loop -->
+      <span class="tickerItem"><span class="tickerSpark">✦</span> 2,200m Alpine Elevation</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> 2 Min Walk to Gondola</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> Private Balcony Peak Views</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> Heated Ski Storage Depot</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> High Speed Wi-Fi</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> In-Unit Washer</span>
+      <span class="tickerItem"><span class="tickerSpark">✦</span> Host Manana Direct</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3. RESIDENCE & UNOBSTRUCTED PHOTO SHOWCASE -->
+<section class="sectionWrapper" id="residence">
+  <div class="sectionHeader">
+    <span class="sectionKicker" data-en="✦ EXCLUSIVE ALPINE SUITE" data-ru="✦ ЭКСКЛЮЗИВНЫЙ АЛЬПИЙСКИЙ СЬЮТ">✦ EXCLUSIVE ALPINE SUITE</span>
+    <h2 class="sectionTitle" data-en="Apartment Mountain Orchid" data-ru="Апартаменты Mountain Orchid">Apartment Mountain Orchid</h2>
+    <p class="sectionSubtitle" data-en="Your Private Winter Sanctuary at 2,200 Meters" data-ru="Ваше личное зимнее убежище на высоте 2200 метров">Your Private Winter Sanctuary at 2,200 Meters</p>
+  </div>
+
+  <div class="residenceCard">
+    <p class="residenceStory" data-en="Nestled in New Gudauri Aparthotel 4, this studio residence combines contemporary alpine luxury with the heartwarming hospitality of host Manana. After an exhilarating day carving fresh powder on Mount Kudebi, return to a warmly heated sanctuary featuring a comfortable double bed with crisp linen, a versatile sofa bed, an elegant dining area, and a private balcony overlooking the snowy resort." data-ru="Расположенная в New Gudauri Aparthotel 4, эта студия сочетает современный альпийский комфорт и искреннее гостеприимство хозяйки Мананы. После яркого катания по свежему снегу горы Кудеби возвращайтесь в теплое убежище с удобной двуспальной кроватью, мягким диваном, обеденной зоной и балконом с видом на заснеженный курорт.">Nestled in New Gudauri Aparthotel 4, this studio residence combines contemporary alpine luxury with the heartwarming hospitality of host Manana. After an exhilarating day carving fresh powder on Mount Kudebi, return to a warmly heated sanctuary featuring a comfortable double bed with crisp linen, a versatile sofa bed, an elegant dining area, and a private balcony overlooking the snowy resort.</p>
+
+    <!-- Clean Unobstructed Photo Slider (Zero Caption Blobs) -->
+    <div class="photoShowcaseStage" id="residencePhotoStage">
+      <div class="photoSlideItem active">
+        <img src="images/mountain_orchid/126164321.jpg" alt="Signature private balcony overlooking Caucasus snow peaks with tea cup and mountain view" class="photoSlideImg">
+      </div>
+      <div class="photoSlideItem">
+        <img src="images/mountain_orchid/126165314.jpg" alt="Warm alpine living quarters with double bed, sofa bed, and orchid mural" class="photoSlideImg">
+      </div>
+      <div class="photoSlideItem">
+        <img src="images/mountain_orchid/126164262.jpg" alt="Bright studio living room with Smart TV, dining table, and kitchen" class="photoSlideImg">
+      </div>
+      <div class="photoSlideItem">
+        <img src="images/mountain_orchid/126167908.jpg" alt="Equipped modern kitchenette with electric stovetop, microwave, and kettle" class="photoSlideImg">
+      </div>
+      <div class="photoSlideItem">
+        <img src="images/mountain_orchid/126165351.jpg" alt="Private bathroom with in-unit washing machine and fresh towels" class="photoSlideImg">
+      </div>
+      <div class="photoSlideItem">
+        <img src="images/mountain_orchid/126165357.jpg" alt="Clean modern private bathroom with walk-in glass shower and heated towel rail" class="photoSlideImg">
+      </div>
+      <div class="photoSlideItem">
+        <img src="images/mountain_orchid/126168201.jpg" alt="Cozy balcony corner with wooden railing and stunning snowy resort view" class="photoSlideImg">
+      </div>
+      <div class="photoSlideItem">
+        <img src="images/mountain_orchid/126165394.jpg" alt="Heated ski storage depot locker room inside the building" class="photoSlideImg">
+      </div>
+
+      <button class="galleryNavBtn galleryPrevBtn" onclick="navigatePhotoSlide(-1)" aria-label="Previous Slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="galleryNavBtn galleryNextBtn" onclick="navigatePhotoSlide(1)" aria-label="Next Slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <!-- Gallery Navigation Dots & Counter -->
+    <div class="galleryMetaBar">
+      <span class="galleryCounter" id="galleryCounter">1 / 8</span>
+      <div class="galleryDots" id="galleryDots">
+        <span class="galleryDot active" onclick="setPhotoSlide(0)"></span>
+        <span class="galleryDot" onclick="setPhotoSlide(1)"></span>
+        <span class="galleryDot" onclick="setPhotoSlide(2)"></span>
+        <span class="galleryDot" onclick="setPhotoSlide(3)"></span>
+        <span class="galleryDot" onclick="setPhotoSlide(4)"></span>
+        <span class="galleryDot" onclick="setPhotoSlide(5)"></span>
+        <span class="galleryDot" onclick="setPhotoSlide(6)"></span>
+        <span class="galleryDot" onclick="setPhotoSlide(7)"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. DEDICATED 8-ITEM AMENITIES CARD (NO HORIZONTAL OVERFLOW BUG) -->
+  <div class="amenitiesDedicatedCard">
+    <div class="amenitiesHeader">
+      <span class="amenitiesBadge" data-en="✦ 100% Private & Included" data-ru="✦ Полностью в вашем распоряжении">✦ 100% Private & Included</span>
+      <h3 class="amenitiesTitle" data-en="Everything Included With Your Residence" data-ru="Все удобства ваших апартаментов">Everything Included With Your Residence</h3>
+    </div>
+
+    <div class="amenitiesGrid">
+      <div class="amenityCell">
+        <div class="amenityIconCircle">☕</div>
+        <div class="amenityName" data-en="Private Tea Balcony" data-ru="Личный балкон">Private Tea Balcony</div>
+        <div class="amenitySub" data-en="Panoramic snow peak views" data-ru="Панорама горных вершин">Panoramic snow peak views</div>
+      </div>
+
+      <div class="amenityCell">
+        <div class="amenityIconCircle">⛷️</div>
+        <div class="amenityName" data-en="2 Min Ski Gondola" data-ru="2 мин до гондолы">2 Min Ski Gondola</div>
+        <div class="amenitySub" data-en="Direct slope & lift access" data-ru="Быстрый выход к подъемнику">Direct slope & lift access</div>
+      </div>
+
+      <div class="amenityCell">
+        <div class="amenityIconCircle">🍳</div>
+        <div class="amenityName" data-en="Full Kitchenette" data-ru="Оборудованная кухня">Full Kitchenette</div>
+        <div class="amenitySub" data-en="Stove, microwave & kettle" data-ru="Плита, микроволновка и чайник">Stove, microwave & kettle</div>
+      </div>
+
+      <div class="amenityCell">
+        <div class="amenityIconCircle">📶</div>
+        <div class="amenityName" data-en="High Speed WiFi" data-ru="Скоростной Wi-Fi">High Speed WiFi</div>
+        <div class="amenitySub" data-en="Fast fiber connection" data-ru="Надежный оптический интернет">Fast fiber connection</div>
+      </div>
+
+      <div class="amenityCell">
+        <div class="amenityIconCircle">🧺</div>
+        <div class="amenityName" data-en="In Unit Washer" data-ru="Стиральная машина">In Unit Washer</div>
+        <div class="amenitySub" data-en="Complimentary laundry" data-ru="Бесплатная стирка снаряжения">Complimentary laundry</div>
+      </div>
+
+      <div class="amenityCell">
+        <div class="amenityIconCircle">🎿</div>
+        <div class="amenityName" data-en="Heated Ski Depot" data-ru="Лыжное депо">Heated Ski Depot</div>
+        <div class="amenitySub" data-en="Secure dry equipment locker" data-ru="Сухое хранение лыж и ботинок">Secure dry equipment locker</div>
+      </div>
+
+      <div class="amenityCell">
+        <div class="amenityIconCircle">🔥</div>
+        <div class="amenityName" data-en="Alpine Radiators" data-ru="Тепло и уют">Alpine Radiators</div>
+        <div class="amenitySub" data-en="Cozy sub zero heating" data-ru="Надежный обогрев в морозы">Cozy sub zero heating</div>
+      </div>
+
+      <div class="amenityCell">
+        <div class="amenityIconCircle">📺</div>
+        <div class="amenityName" data-en="Smart TV & Dining" data-ru="Smart TV и столовая">Smart TV & Dining</div>
+        <div class="amenitySub" data-en="Streaming & cozy meals" data-ru="Вечерний отдых и ужин">Streaming & cozy meals</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. RESORT & SPA COMPLEX (SEPARATED & CLEARLY ANNOTATED) -->
+  <div class="resortSectionCard">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <span class="resortSurchargeBadge" data-en="★ New Gudauri Resort Complex • Surcharge May Apply for Spa" data-ru="★ Инфраструктура курорта • СПА за отдельную плату">★ New Gudauri Resort Complex • Surcharge May Apply for Spa</span>
+      <h3 class="amenitiesTitle" data-en="Resort & Village Surroundings" data-ru="Инфраструктура курорта и поселка">Resort & Village Surroundings</h3>
+      <p style="font-size: 13.5px; color: var(--text-secondary); max-width: 580px; margin: 6px auto 0;" data-en="Apartment Mountain Orchid is located in the vibrant New Gudauri village, giving you effortless access to resort amenities just steps from your entrance." data-ru="Апартаменты расположены в современном центре New Gudauri, всего в нескольких шагах от ресторанов, прокатов и спа-комплекса.">Apartment Mountain Orchid is located in the vibrant New Gudauri village, giving you effortless access to resort amenities just steps from your entrance.</p>
+    </div>
+
+    <div class="resortGrid">
+      <div class="resortTile">
+        <div class="resortTileImgWrapper">
+          <img src="images/mountain_orchid/90335287.jpg" alt="New Gudauri ski gondola lift terminal and resort plaza" class="resortTileImg">
+        </div>
+        <div class="resortTileBody">
+          <div class="resortTileTitle" data-en="Gondola & Ski Lifts" data-ru="Подъемник и трассы">Gondola & Ski Lifts</div>
+          <div class="resortTileDesc" data-en="Step outside directly to the high speed gondola cable car ascending Mount Kudebi." data-ru="Прямой выход к гондоле, поднимающей на вершины Кудеби.">Step outside directly to the high speed gondola cable car ascending Mount Kudebi.</div>
+        </div>
+      </div>
+
+      <div class="resortTile">
+        <div class="resortTileImgWrapper">
+          <img src="images/mountain_orchid/113699507.jpg" alt="Heated indoor swimming pool and luxury wellness spa in New Gudauri" class="resortTileImg">
+        </div>
+        <div class="resortTileBody">
+          <div class="resortTileTitle" data-en="Heated Pool & Spa" data-ru="Теплый бассейн и СПА">Heated Pool & Spa</div>
+          <div class="resortTileDesc" data-en="Indoor wellness pool, sauna, and massage center available in neighboring resort hub (entrance fee applies)." data-ru="Крытый бассейн, сауна и массаж в соседнем спа-комплексе (оплачивается отдельно).">Indoor wellness pool, sauna, and massage center available in neighboring resort hub (entrance fee applies).</div>
+        </div>
+      </div>
+
+      <div class="resortTile">
+        <div class="resortTileImgWrapper">
+          <img src="images/mountain_orchid/126166185.jpg" alt="Alpine chalet cafes, apres ski bars and restaurants in New Gudauri" class="resortTileImg">
+        </div>
+        <div class="resortTileBody">
+          <div class="resortTileTitle" data-en="Apres Ski & Dining" data-ru="Рестораны и апре-ски">Apres Ski & Dining</div>
+          <div class="resortTileDesc" data-en="Traditional Georgian restaurants, Italian pizzerias, cafes, and ski rental depots within 150m." data-ru="Грузинские рестораны, пиццерии, кофейни и прокат лыж в 150 метрах от дома.">Traditional Georgian restaurants, Italian pizzerias, cafes, and ski rental depots within 150m.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. MINIMAL, SYMMETRICAL REVIEWS CAROUSEL -->
+<section class="reviewsWrapper" id="reviews">
+  <div class="sectionHeader">
+    <span class="sectionKicker" data-en="✦ VERIFIED EXPERIENCES" data-ru="✦ ПРОВЕРЕННЫЕ ОТЗЫВЫ">✦ VERIFIED EXPERIENCES</span>
+    <h2 class="sectionTitle" data-en="What Our Guests Say" data-ru="Что говорят наши гости">What Our Guests Say</h2>
+  </div>
+
+  <div class="ratingSymmetricalPill">
+    <span class="pillStarIcon">★</span>
+    <span class="pillScore">9.4 / 10</span>
+    <span class="pillDot">•</span>
+    <span data-en="Superb on Booking.com" data-ru="Потрясающе на Booking.com">Superb on Booking.com</span>
+    <span class="pillDot">•</span>
+    <span data-en="15+ Verified Reviews" data-ru="15+ отзывов">15+ Verified Reviews</span>
+  </div>
+
+  <div class="reviewCarouselContainer">
+    <!-- Slide 1 -->
+    <div class="reviewSlideItem active">
+      <div class="reviewStars">★★★★★</div>
+      <p class="reviewQuoteText" data-en="“Wonderful apartment in New Gudauri, perfectly matches the description and photos. Seamless arrival, excellent WiFi, and a breathtaking mountain view from the balcony. Walking distance to lifts, parking, ski storage. Host Manana is simply exceptional!”" data-ru="“Прекрасные апартаменты в Новом Гудаури, полностью соответствуют описанию и фотографиям. Быстрое заселение, отличный Wi-Fi и потрясающий вид на горы с балкона. До подъемников пешком пару минут. Хозяйка Манана выше всяких похвал!”">“Wonderful apartment in New Gudauri, perfectly matches the description and photos. Seamless arrival, excellent WiFi, and a breathtaking mountain view from the balcony. Walking distance to lifts, parking, ski storage. Host Manana is simply exceptional!”</p>
+      <div class="reviewAuthor">Oksana • Russia</div>
+      <div class="reviewStayTag" data-en="Booking.com Verified Guest • 10 / 10" data-ru="Подтвержденный отзыв Booking.com • 10 / 10">Booking.com Verified Guest • 10 / 10</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="reviewSlideItem">
+      <div class="reviewStars">★★★★★</div>
+      <p class="reviewQuoteText" data-en="“Fantastic stay in Gudauri! The apartment is warm, spotlessly clean, and has everything you could need for cooking. Having coffee on the snowy balcony in the morning was magical. Ski storage in the building is super convenient.”" data-ru="“Фантастический отдых в Гудаури! Квартира очень теплая, идеально чистая, на кухне есть все для готовки. Утренний кофе на заснеженном балконе это сказка. Лыжное депо в здании невероятно удобно.”">“Fantastic stay in Gudauri! The apartment is warm, spotlessly clean, and has everything you could need for cooking. Having coffee on the snowy balcony in the morning was magical. Ski storage in the building is super convenient.”</p>
+      <div class="reviewAuthor">Lukas • Poland</div>
+      <div class="reviewStayTag" data-en="Booking.com Verified Guest • 10 / 10" data-ru="Подтвержденный отзыв Booking.com • 10 / 10">Booking.com Verified Guest • 10 / 10</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="reviewSlideItem">
+      <div class="reviewStars">★★★★★</div>
+      <p class="reviewQuoteText" data-en="“Great location in New Gudauri, very close to the gondola. Heated room, hot shower with great water pressure, and Manana was always available on WhatsApp for any questions. 100% recommended for ski vacations.”" data-ru="“Отличная локация в Новом Гудаури, очень близко к гондоле. Очень тепло, отличный напор горячей воды в душе, и Манана всегда была на связи в WhatsApp по любым вопросам. Рекомендую на все 100%.”">“Great location in New Gudauri, very close to the gondola. Heated room, hot shower with great water pressure, and Manana was always available on WhatsApp for any questions. 100% recommended for ski vacations.”</p>
+      <div class="reviewAuthor">Dmitry • Israel</div>
+      <div class="reviewStayTag" data-en="Booking.com Verified Guest • 9.6 / 10" data-ru="Подтвержденный отзыв Booking.com • 9.6 / 10">Booking.com Verified Guest • 9.6 / 10</div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="reviewSlideItem">
+      <div class="reviewStars">★★★★★</div>
+      <p class="reviewQuoteText" data-en="“Super cozy studio with great attention to detail. Fast WiFi for remote work, comfortable mattress after intense ski days, and the view of the snow resort is unbeatable. We will definitely come back!”" data-ru="“Очень уютная студия с вниманием к деталям. Быстрый Wi-Fi для работы, удобный матрас после катания, а вид на заснеженный курорт просто восторг. Обязательно вернемся снова!”">“Super cozy studio with great attention to detail. Fast WiFi for remote work, comfortable mattress after intense ski days, and the view of the snow resort is unbeatable. We will definitely come back!”</p>
+      <div class="reviewAuthor">Elena • Kazakhstan</div>
+      <div class="reviewStayTag" data-en="Booking.com Verified Guest • 10 / 10" data-ru="Подтвержденный отзыв Booking.com • 10 / 10">Booking.com Verified Guest • 10 / 10</div>
+    </div>
+
+    <!-- Bottom Navigation Bar (Arrows NEVER overlap text) -->
+    <div class="reviewNavBottomBar">
+      <button class="reviewArrowBtn" onclick="navigateReviewSlide(-1)" aria-label="Previous Review">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="reviewDotsContainer" id="reviewDotsContainer">
+        <span class="reviewDot active" onclick="setReviewSlide(0)"></span>
+        <span class="reviewDot" onclick="setReviewSlide(1)"></span>
+        <span class="reviewDot" onclick="setReviewSlide(2)"></span>
+        <span class="reviewDot" onclick="setReviewSlide(3)"></span>
+      </div>
+      <button class="reviewArrowBtn" onclick="navigateReviewSlide(1)" aria-label="Next Review">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- 7. COMPACT MINIMAL BOOKING & AVAILABILITY CARD -->
+<section class="bookingCardWrapper" id="booking">
+  <div class="bookingCard">
+    <div class="bookingHeader">
+      <div class="bookingKicker" data-en="✦ 0% COMMISSION DIRECT PRIVILEGE" data-ru="✦ ПРЯМОЕ БРОНИРОВАНИЕ БЕЗ КОМИССИИ">✦ 0% COMMISSION DIRECT PRIVILEGE</div>
+      <h2 class="bookingTitle" data-en="Check Availability With Manana" data-ru="Узнать доступность у Мананы">Check Availability With Manana</h2>
+      <p class="bookingDesc" data-en="Bypass online travel agency surcharges and connect directly with Manana. Save 15% to 20% on your ski holiday in Gudauri while receiving personalized Georgian hospitality." data-ru="Бронируйте напрямую без наценок сервисов и комиссий. Экономьте 15-20% на отдыхе в Гудаури и получайте радушный прием от хозяйки.">Bypass online travel agency surcharges and connect directly with Manana. Save 15% to 20% on your ski holiday in Gudauri while receiving personalized Georgian hospitality.</p>
+    </div>
+
+    <form class="bookingFormGrid" onsubmit="event.preventDefault(); submitDirectBooking();">
+      <div class="formGroup">
+        <label class="formLabel" for="checkInDate" data-en="Check In Date" data-ru="Дата заезда">Check In Date</label>
+        <input type="date" id="checkInDate" class="formInput" required>
+      </div>
+
+      <div class="formGroup">
+        <label class="formLabel" for="checkOutDate" data-en="Check Out Date" data-ru="Дата выезда">Check Out Date</label>
+        <input type="date" id="checkOutDate" class="formInput" required>
+      </div>
+
+      <div class="formGroup">
+        <label class="formLabel" for="guestCount" data-en="Number of Guests" data-ru="Количество гостей">Number of Guests</label>
+        <select id="guestCount" class="formSelect">
+          <option value="2 Guests (Double Bed)" selected data-en="2 Guests (Double Bed)" data-ru="2 Гостя (Двуспальная кровать)">2 Guests (Double Bed)</option>
+          <option value="3 Guests (Bed + Sofa)" data-en="3 Guests (Bed + Sofa)" data-ru="3 Гостя (Кровать + диван)">3 Guests (Bed + Sofa)</option>
+          <option value="1 Solo Traveler" data-en="1 Solo Traveler" data-ru="1 Гость">1 Solo Traveler</option>
+        </select>
+      </div>
+
+      <div class="formGroup">
+        <label class="formLabel" for="tripPurpose" data-en="Trip Purpose" data-ru="Цель поездки">Trip Purpose</label>
+        <select id="tripPurpose" class="formSelect">
+          <option value="Ski & Snowboard Holiday" selected data-en="Ski & Snowboard Holiday" data-ru="Катание на лыжах и сноуборде">Ski & Snowboard Holiday</option>
+          <option value="Mountain Relaxation" data-en="Mountain Relaxation" data-ru="Отдых в горах">Mountain Relaxation</option>
+          <option value="Remote Work & Ski" data-en="Remote Work & Ski" data-ru="Удаленная работа и горы">Remote Work & Ski</option>
+        </select>
+      </div>
+
+      <div class="formFieldFull">
+        <div class="priceCalculationBox">
+          <div>
+            <div class="priceLeftLabel" data-en="Direct Host Rate" data-ru="Прямой тариф">Direct Host Rate</div>
+            <div class="priceLeftSub" data-en="Save 15% vs Booking.com" data-ru="Экономия до 20% vs Booking.com">Save 15% vs Booking.com</div>
+          </div>
+          <div class="priceRightVal">
+            <span class="priceAmount">$85</span>
+            <span class="priceUnit" data-en="/ night" data-ru="/ ночь">/ night</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="formFieldFull">
+        <button type="submit" class="submitBookingBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span data-en="Send Direct Inquiry via WhatsApp" data-ru="Запросить даты в WhatsApp">Send Direct Inquiry via WhatsApp</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- 8. SWIPE-UP DISMISSIBLE STICKY BOTTOM BAR -->
+<div class="mobileStickyBar" id="mobileStickyBar">
+  <div class="stickyPriceGroup">
+    <span class="stickyRateLabel" data-en="Direct Rate" data-ru="Прямой тариф">Direct Rate</span>
+    <span class="stickyPriceVal">$85 <span class="stickyNight" data-en="/ night" data-ru="/ ночь">/ night</span></span>
+  </div>
+  <button class="stickyWhatsAppBtn" onclick="openDirectWhatsAppNoDates()" aria-label="WhatsApp Host Manana">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span data-en="WhatsApp Manana (0% Fee)" data-ru="WhatsApp Манана (0% комиссии)">WhatsApp Manana (0% Fee)</span>
+  </button>
 </div>
 
-<!-- 8. LUXURY FOOTER -->
-<footer class="luxuryFooter">
-  <div class="footerBrandName">Apartment Mountain Orchid</div>
-  <p class="footerNotice" data-i18n="footer_notice">
-    Direct Host Booking • Save 15% to 20% in OTA fees • New Gudauri Aparthotel 4, Georgia
-  </p>
+<!-- 9. FOOTER -->
+<footer class="footerSection">
+  <div class="footerHostCard">
+    <span class="hostBadge" data-en="✦ YOUR HOST" data-ru="✦ ВАША ХОЗЯЙКА">✦ YOUR HOST</span>
+    <h3 class="hostTitle" data-en="Manana • Gudauri Host" data-ru="Манана • Хозяйка апартаментов">Manana • Gudauri Host</h3>
+    <p class="hostDesc" data-en="Dedicated to making your mountain stay in Georgia memorable and comfortable. Direct contact, prompt communication, and insider tips for the ski resort." data-ru="Заботится о том, чтобы ваш отдых в Гудаури прошел комфортно и незабываемо. Всегда на связи, быстрые ответы и лучшие советы по курорту.">Dedicated to making your mountain stay in Georgia memorable and comfortable. Direct contact, prompt communication, and insider tips for the ski resort.</p>
+    <p class="footerCopyright">© Apartment Mountain Orchid • New Gudauri Aparthotel 4 • Direct Host Showcase</p>
+  </div>
 </footer>
 
-<!-- JAVASCRIPT LOGIC & BILINGUAL ENGINE -->
+<!-- JAVASCRIPT: BILINGUAL ENGINE, CAROUSELS & SWIPE-UP DISMISS LOGIC -->
 <script>
-  let currentLanguage = 'en';
+  // 1. Language Toggle Engine (EN / RU)
+  let currentLang = 'en';
 
-  const translations = {
-    en: {
-      nav_reviews: "Reviews",
-      nav_booking: "Booking",
-      badge_hero_kicker: "New Gudauri Ski Resort • Caucasus Peaks",
-      hero_title_accent: "Luxury Alpine Residence in New Gudauri",
-      hero_subtitle: "A warm alpine sanctuary in the snow peaks of Gudauri. Experience true Georgian hospitality with panoramic mountain vistas and direct booking privilege.",
-      hero_btn_explore: "Explore The Residence",
-      mq_1: "Superb on Booking.com",
-      mq_2: "Host & Cleanliness Score",
-      mq_3: "Commission on Direct Booking",
-      mq_4: "Walk to Pirveli Ski Gondola",
-      mq_5: "Panoramic Caucasus Peaks View",
-      mq_6: "Spa & Sauna in Complex",
-      mq_7: "Secure Ski Storage Locker",
-      mq_8: "Stove, Microwave & Bosch Kettle",
-      mq_9: "Wi-Fi & Flat Screen Smart TV",
-      mq_10: "Warm Hospitality by Host Manana",
-      stay_kicker: "Alpine Living & Resort Wellness",
-      stay_title: "Two Dimensions of Comfort in Gudauri",
-      stay_desc: "Choose your perspective: explore the private 35m² luxury residence with its signature tea balcony and warm interiors, or discover the complete resort facilities including indoor heated pool, après-ski sun terraces, and lift proximity.",
-      tab_residence: "The Private Residence",
-      tab_resort: "Resort Complex & Spa",
-      residence_editorial_title: "Apartment Mountain Orchid • Your Warm Alpine Home",
-      residence_editorial_p: "Nestled at 2,200 meters in New Gudauri Aparthotel 4, this 35-square-meter studio residence combines contemporary alpine luxury with the heartwarming hospitality of host Manana. After an exhilarating day carving fresh powder on Mount Kudebi, return to a warmly heated sanctuary featuring a comfortable double bed with crisp linen, a versatile sofa bed, an elegant dining area, and a private balcony overlooking the snowy resort.",
-      residence_included_note: "100% Private Apartment Amenities • Fully Included in Your Direct Reservation",
-      am_balcony_title: "Private Balcony",
-      am_balcony_sub: "Tea corner & snow peaks",
-      am_ski_title: "2 Min to Ski Gondola",
-      am_ski_sub: "Instant slope & lift access",
-      am_kitchen_title: "Full Kitchenette",
-      am_kitchen_sub: "Stove, microwave & kettle",
-      am_depot_title: "Ski Depot Locker",
-      am_depot_sub: "Dedicated gear storage room",
-      am_wifi_title: "High-Speed Wi-Fi",
-      am_wifi_sub: "Fast streaming & work",
-      am_shower_title: "Rain Shower & Heat",
-      am_shower_sub: "Heated towel rack & radiator",
-      am_washer_title: "In-Unit Washer",
-      am_washer_sub: "Laundry, iron & board",
-      am_capacity_title: "Up to 4 Guests",
-      am_capacity_sub: "Queen bed + sofa bed",
-      resort_editorial_title: "New Gudauri Resort Amenities & Wellness",
-      resort_editorial_p: "Located in the heart of New Gudauri, Aparthotel 4 grants immediate proximity to fine Georgian restaurants, craft wine bars, ski equipment rental shops, and the Pirveli ski gondola. The complex also features an indoor swimming pool, cedarwood sauna, and comprehensive fitness facilities.",
-      resort_notice: "Resort wellness facilities (indoor pool, sauna, fitness & spa treatments) are operated by New Gudauri complex and available à la carte (not included in room rate).",
-      pricing_title: "Seasonal Direct Rates & Inclusions",
-      price_tab_winter: "Winter Peak",
-      price_tab_spring: "Spring / Autumn",
-      price_lbl_night: "Direct Host Rate",
-      price_per_night: "/ night",
-      price_lbl_ota: "Booking.com Rate",
-      price_lbl_savings: "Your Direct Savings",
-      price_lbl_capacity: "Capacity & Setup",
-      price_guests: "guests",
-      pricing_footer_note: "* Direct reservations are confirmed immediately with host Manana. 0% booking commission and no hidden platform fees.",
-      pricing_footer_cta: "Check Your Dates on WhatsApp →",
-      reviews_kicker: "✦ VERIFIED GUEST EXPERIENCES",
-      reviews_heading: "What Our Guests Say",
-      reviews_badge_subtext: "Superb on Booking.com • 15+ Verified Reviews",
-      contact_badge: "✦ 0% Commission • Book Direct & Save",
-      contact_heading: "Check Availability with Host Manana",
-      contact_desc: "Bypass online travel agency surcharges and connect directly with Manana. Save 15% to 20% on your ski holiday in Gudauri while receiving personalized Georgian hospitality and rapid confirmation.",
-      form_lbl_checkin: "Check-in Date",
-      form_lbl_checkout: "Check-out Date",
-      form_lbl_guests: "Number of Guests",
-      form_lbl_trip: "Trip Purpose",
-      form_btn_whatsapp: "Send Direct Inquiry via WhatsApp",
-      form_note_savings: "Direct price is 15% to 20% lower than Booking.com rates. No middleman.",
-      mobile_sticky_label: "Direct Rate",
-      mobile_sticky_btn: "WhatsApp Manana (0% Fee)",
-      footer_notice: "Direct Host Booking • Save 15% to 20% in OTA fees • New Gudauri Aparthotel 4, Georgia"
-    },
-    ru: {
-      nav_reviews: "Отзывы",
-      nav_booking: "Бронь",
-      badge_hero_kicker: "Горнолыжный курорт Новый Гудаури • Кавказ",
-      hero_title_accent: "Уютная альпийская резиденция в Новом Гудаури",
-      hero_subtitle: "Тёплый альпийский дом среди заснеженных вершин Кавказа. Настоящее грузинское гостеприимство, панорамный вид с балкона и прямое бронирование без переплат.",
-      hero_btn_explore: "Посмотреть апартаменты",
-      mq_1: "Рейтинг на Booking.com",
-      mq_2: "Чистота и оценка хозяйки",
-      mq_3: "Комиссии при прямой брони",
-      mq_4: "Пешком до гондолы Пирвели",
-      mq_5: "Панорамный вид на горы Кавказа",
-      mq_6: "Бассейн и сауна в здании",
-      mq_7: "Индивидуальный лыжный шкаф",
-      mq_8: "Плита, микроволновка и чайник Bosch",
-      mq_9: "Скоростной Wi-Fi и Smart TV",
-      mq_10: "Душевный приём хозяйки Мананы",
-      stay_kicker: "Альпийский уют и горный отдых",
-      stay_title: "Два измерения комфорта в Гудаури",
-      stay_desc: "Выберите нужный вид: познакомьтесь с уютной студией 35м² с фирменным чайным балконом и тёплым интерьером, либо изучите курортную инфраструктуру комплекса: крытый бассейн, террасы и близость к подъёмникам.",
-      tab_residence: "Апартаменты",
-      tab_resort: "Курорт и спа",
-      residence_editorial_title: "Апартаменты Mountain Orchid • Ваш тёплый дом в горах",
-      residence_editorial_p: "Студия площадью 35 кв.м на высоте 2200 метров в апарт-отеле Новый Гудаури 4 сочетает современный альпийский комфорт и искреннюю заботу хозяйки Мананы. После активного дня на склонах Кудеби возвращайтесь в идеально прогретый дом с мягкой двуспальной кроватью, раскладным диваном, обеденной зоной и балконом с видом на заснеженный курорт.",
-      residence_included_note: "Все удобства апартаментов (приватный чайный балкон, кухня, лыжный шкаф, скоростной Wi-Fi, отопление) полностью включены в стоимость проживания.",
-      am_balcony_title: "Видовой балкон",
-      am_balcony_sub: "Чайный столик и панорама снежных гор",
-      am_ski_title: "2 мин до подъёмника",
-      am_ski_sub: "Быстрый выход к гондоле Пирвели",
-      am_kitchen_title: "Оснащенная кухня",
-      am_kitchen_sub: "Плита, СВЧ, чайник Bosch и тостер",
-      am_depot_title: "Лыжное депо",
-      am_depot_sub: "Индивидуальный шкаф для снаряжения",
-      am_wifi_title: "Скоростной Wi-Fi",
-      am_wifi_sub: "Быстрый интернет для отдыха и работы",
-      am_shower_title: "Душ и тепло",
-      am_shower_sub: "Тропический душ, тёплые радиаторы",
-      am_washer_title: "Стиральная машина",
-      am_washer_sub: "В номере, стирка лыжной одежды",
-      am_capacity_title: "До 4 гостей",
-      am_capacity_sub: "Двуспальная кровать + диван-кровать",
-      resort_editorial_title: "Инфраструктура Нового Гудаури и спа",
-      resort_editorial_p: "Апарт-отель 4 расположен в самом центре курорта Новый Гудаури: рядом лучшие грузинские рестораны, бары, прокат горнолыжного снаряжения и скоростная канатная дорога Пирвели. В здании также работают крытый бассейн, кедровая сауна и тренажерный зал.",
-      resort_notice: "Спа-центр (бассейн, сауна, фитнес и массаж) управляется курортным комплексом Нового Гудаури и оплачивается отдельно (не входит в стоимость номера).",
-      pricing_title: "Сезонные тарифы и условия",
-      price_tab_winter: "Зимний пик",
-      price_tab_spring: "Весна / Осень",
-      price_lbl_night: "Прямой тариф",
-      price_per_night: "/ ночь",
-      price_lbl_ota: "Цена на Booking.com",
-      price_lbl_savings: "Ваша экономия",
-      price_lbl_capacity: "Вместимость",
-      price_guests: "гостей",
-      pricing_footer_note: "* Прямое бронирование подтверждается моментально хозяйкой Мананой. 0% комиссий и скрытых сборов сервисов.",
-      pricing_footer_cta: "Узнать даты в WhatsApp →",
-      reviews_kicker: "✦ ОТЗЫВЫ ГОСТЕЙ",
-      reviews_heading: "Впечатления гостей",
-      reviews_badge_subtext: "Превосходно на Booking.com • 15+ отзывов",
-      contact_badge: "✦ 0% Комиссии • Прямая бронь без посредников",
-      contact_heading: "Уточнить свободные даты у Мананы",
-      contact_desc: "Бронируйте напрямую без переплат сервисным платформам. Экономьте 15% - 20% на отдыхе в Гудаури, получая быстрое подтверждение и заботу хозяйки.",
-      form_lbl_checkin: "Дата заезда",
-      form_lbl_checkout: "Дата выезда",
-      form_lbl_guests: "Количество гостей",
-      form_lbl_trip: "Цель поездки",
-      form_btn_whatsapp: "Отправить запрос в WhatsApp",
-      form_note_savings: "Прямой тариф на 15% - 20% выгоднее цен на сервисах бронирования.",
-      mobile_sticky_label: "Прямой тариф",
-      mobile_sticky_btn: "WhatsApp Мананы (0% сбор)",
-      footer_notice: "Прямое бронирование у хозяйки • Экономия 15% - 20% на комиссиях • Новый Гудаури, Апарт-отель 4"
-    }
-  };
-
-  function switchLanguage(lang) {
-    currentLanguage = lang;
-    const btnEn = document.getElementById('btnLangEn');
-    const btnRu = document.getElementById('btnLangRu');
-
-    if (lang === 'ru') {
-      btnEn.classList.remove('activeLang');
-      btnRu.classList.add('activeLang');
-    } else {
-      btnRu.classList.remove('activeLang');
-      btnEn.classList.add('activeLang');
-    }
-
-    const dict = translations[lang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key]) {
-        el.textContent = dict[key];
+  function setLanguage(lang) {
+    currentLang = lang;
+    const elements = document.querySelectorAll('[data-en]');
+    elements.forEach(el => {
+      if (lang === 'ru' && el.getAttribute('data-ru')) {
+        el.textContent = el.getAttribute('data-ru');
+      } else if (lang === 'en' && el.getAttribute('data-en')) {
+        el.textContent = el.getAttribute('data-en');
       }
     });
 
-    renderReview(currentReviewIndex);
-    updateCurrentSlideCaptions();
+    const langEn = document.getElementById('langEn');
+    const langRu = document.getElementById('langRu');
+    if (lang === 'ru') {
+      langRu.classList.add('active');
+      langEn.classList.remove('active');
+      document.documentElement.lang = 'ru';
+    } else {
+      langEn.classList.add('active');
+      langRu.classList.remove('active');
+      document.documentElement.lang = 'en';
+    }
   }
 
-  // 8 Authentic Verified Reviews from Booking.com listing
-  const guestReviews = [
-    {
-      name: "Oksana",
-      origin: "Russia",
-      tripEn: "Family Mountain Holiday • Verified Booking.com",
-      tripRu: "Семейный отдых в горах • Проверенное бронирование",
-      score: "10 / 10",
-      quoteEn: "Wonderful apartment in New Gudauri, perfectly matches the description and photos. Fast check-in, excellent Wi-Fi, and a breathtaking mountain view from the balcony. Walking distance to lifts, parking, ski storage. Host Manana is simply exceptional!",
-      quoteRu: "Замечательные апартаменты в Новом Гудаури, всё полностью соответствует фото и описанию. Быстрое заселение, отличный интернет и шикарный вид на горы с балкона! До подъемников пара минут, есть парковка и шкаф для лыж. Хозяйка Манана выше всяких похвал!"
-    },
-    {
-      name: "Vladislav",
-      origin: "Kazakhstan",
-      tripEn: "Winter Ski Trip • Verified Booking.com",
-      tripRu: "Горнолыжный отдых • Проверенное бронирование",
-      score: "10 / 10",
-      quoteEn: "Great location, all kitchen appliances are in place and good quality. Bathroom fixtures are well maintained. All essentials like a microwave, washing machine and kettle are available. A ski depot is also provided for safe ski storage.",
-      quoteRu: "Отличное расположение, вся кухонная техника на месте и отличного качества. Сантехника ухоженная. Есть все необходимое: микроволновка, стиральная машина, чайник. Для лыж предусмотрен отдельный шкафчик в депо."
-    },
-    {
-      name: "Maksim",
-      origin: "Georgia",
-      tripEn: "Ski & Leisure Weekend • Verified Booking.com",
-      tripRu: "Горнолыжные выходные • Проверенное бронирование",
-      score: "10 / 10",
-      quoteEn: "An incredibly cozy apartment in New Gudauri with everything for comfortable staying and enjoying the mountains. Charming comfort and thoughtful details. Host Manana is friendly and hospitable. The location is just a few steps to the gondola.",
-      quoteRu: "Невероятно уютная квартира в Новом Гудаури со всем необходимым для комфортного отдыха и наслаждения горами. Продуманные детали, душевный приём хозяйки Мананы и буквально пара шагов до канатной дороги."
-    },
-    {
-      name: "Andrey",
-      origin: "Russia",
-      tripEn: "Alpine Ski Week • Verified Booking.com",
-      tripRu: "Неделя катания на лыжах • Проверенное бронирование",
-      score: "10 / 10",
-      quoteEn: "Very cozy, clean and warm studio. Beautiful view from the tea balcony over the snow covered mountains. Kitchen is fully stocked with cookware. Great hot shower pressure after skiing. Highly recommended!",
-      quoteRu: "Очень уютная, чистая и теплая студия. Прекрасный вид с чайного балкона на заснеженные горы. Кухня полностью укомплектована посудой. Отличный напор горячей воды в душе после катания. Рекомендую от души!"
-    },
-    {
-      name: "Eilem",
-      origin: "Israel",
-      tripEn: "Winter Vacation • Verified Booking.com",
-      tripRu: "Зимний отпуск • Проверенное бронирование",
-      score: "9.6 / 10",
-      quoteEn: "Host Manana was super helpful and responsive throughout our stay. Excellent location close to everything in New Gudauri. The room was warm, clean, and comfortable for ski gear.",
-      quoteRu: "Хозяйка Манана была невероятно отзывчивой на протяжении всего пребывания. Превосходное расположение близко ко всем удобствам Нового Гудаури. В номере тепло, чисто и уютно."
-    },
-    {
-      name: "Aga",
-      origin: "Poland",
-      tripEn: "Ski Holiday in Caucasus • Verified Booking.com",
-      tripRu: "Горнолыжный отдых на Кавказе • Проверенное бронирование",
-      score: "9.6 / 10",
-      quoteEn: "Great apartment right next to the slopes. Easy key handover, clean bedding, warm radiators, and a lovely balcony overlooking the snowy valley. We will definitely come back!",
-      quoteRu: "Отличные апартаменты прямо возле трасс. Удобная передача ключей, чистое белье, теплые батареи и замечательный балкон с видом на снежную долину. Обязательно вернемся!"
-    },
-    {
-      name: "Elena",
-      origin: "Estonia",
-      tripEn: "Winter Mountain Getaway • Verified Booking.com",
-      tripRu: "Зимняя поездка в горы • Проверенное бронирование",
-      score: "10 / 10",
-      quoteEn: "The apartment is so warm and comfortable! Beautiful mountain view, great tea balcony, and host Manana is always available and kind. Very close to the gondola.",
-      quoteRu: "Квартира очень теплая и комфортная! Прекрасный вид на горы, отличный чайный балкон, а хозяйка Манана всегда на связи и очень доброжелательна. Очень близко к гондоле."
-    },
-    {
-      name: "Dmitry",
-      origin: "Belarus",
-      tripEn: "Freeride Ski Trip • Verified Booking.com",
-      tripRu: "Фрирайд тур • Проверенное бронирование",
-      score: "10 / 10",
-      quoteEn: "Flawless ski stay in New Gudauri! Ski depot was very convenient, heating was strong, bed was super comfy, and the kitchen had everything needed. Highly recommended!",
-      quoteRu: "Безупречный горнолыжный отдых в Новом Гудаури! Очень удобное депо для лыж, отличное отопление, удобная кровать и вся необходимая посуда на кухне. Рекомендую!"
-    }
-  ];
+  function toggleLanguage() {
+    setLanguage(currentLang === 'en' ? 'ru' : 'en');
+  }
 
+  // 2. Residence Photo Carousel
+  let currentPhotoIndex = 0;
+  const photoSlides = document.querySelectorAll('.photoSlideItem');
+  const photoDots = document.querySelectorAll('.galleryDot');
+  const galleryCounter = document.getElementById('galleryCounter');
+
+  function updatePhotoSlide(idx) {
+    if (!photoSlides.length) return;
+    photoSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === idx);
+    });
+    photoDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === idx);
+    });
+    if (galleryCounter) {
+      galleryCounter.textContent = `${idx + 1} / ${photoSlides.length}`;
+    }
+    currentPhotoIndex = idx;
+  }
+
+  function navigatePhotoSlide(dir) {
+    let nextIdx = (currentPhotoIndex + dir + photoSlides.length) % photoSlides.length;
+    updatePhotoSlide(nextIdx);
+  }
+
+  function setPhotoSlide(idx) {
+    updatePhotoSlide(idx);
+  }
+
+  // 3. Reviews Carousel
   let currentReviewIndex = 0;
+  const reviewSlides = document.querySelectorAll('.reviewSlideItem');
+  const reviewDots = document.querySelectorAll('.reviewDot');
 
-  function renderReview(idx) {
-    currentReviewIndex = (idx + guestReviews.length) % guestReviews.length;
-    const r = guestReviews[currentReviewIndex];
-
-    const quoteEl = document.getElementById('reviewQuoteText');
-    const authorEl = document.getElementById('reviewAuthorName');
-    const metaEl = document.getElementById('reviewAuthorMeta');
-    const scoreEl = document.getElementById('reviewScorePill');
-
-    quoteEl.style.opacity = '0';
-    setTimeout(() => {
-      quoteEl.textContent = currentLanguage === 'ru' ? ('"' + r.quoteRu + '"') : ('"' + r.quoteEn + '"');
-      authorEl.textContent = r.name + ' • ' + r.origin;
-      metaEl.textContent = currentLanguage === 'ru' ? r.tripRu : r.tripEn;
-      scoreEl.textContent = '★ ' + r.score;
-      quoteEl.style.opacity = '1';
-    }, 150);
-
-    const dots = document.querySelectorAll('#reviewsDotsBox .reviewDot');
-    dots.forEach((d, i) => d.classList.toggle('activeDot', i === currentReviewIndex));
+  function updateReviewSlide(idx) {
+    if (!reviewSlides.length) return;
+    reviewSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === idx);
+    });
+    reviewDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === idx);
+    });
+    currentReviewIndex = idx;
   }
 
-  function nextReview() { renderReview(currentReviewIndex + 1); }
-  function prevReview() { renderReview(currentReviewIndex - 1); }
-  function jumpReview(idx) { renderReview(idx); }
-
-  // Residence Photo Gallery Controls
-  let residenceIndex = 0;
-  const totalResidencePhotos = 8;
-
-  function jumpResidencePhoto(idx) {
-    residenceIndex = (idx + totalResidencePhotos) % totalResidencePhotos;
-    const slides = document.querySelectorAll('#residenceSlidesBox .photoSlide');
-    const thumbs = document.querySelectorAll('#residenceThumbsRibbon .ribbonThumb');
-
-    slides.forEach((s, i) => s.classList.toggle('activePhotoSlide', i === residenceIndex));
-    thumbs.forEach((th, i) => th.classList.toggle('activeRibbonThumb', i === residenceIndex));
-    updateCurrentSlideCaptions();
+  function navigateReviewSlide(dir) {
+    let nextIdx = (currentReviewIndex + dir + reviewSlides.length) % reviewSlides.length;
+    updateReviewSlide(nextIdx);
   }
 
-  function nextResidencePhoto() { jumpResidencePhoto(residenceIndex + 1); }
-  function prevResidencePhoto() { jumpResidencePhoto(residenceIndex - 1); }
-
-  // Resort Photo Gallery Controls
-  let resortIndex = 0;
-  const totalResortPhotos = 6;
-
-  function jumpResortPhoto(idx) {
-    resortIndex = (idx + totalResortPhotos) % totalResortPhotos;
-    const slides = document.querySelectorAll('#resortSlidesBox .photoSlide');
-    const thumbs = document.querySelectorAll('#resortThumbsRibbon .ribbonThumb');
-
-    slides.forEach((s, i) => s.classList.toggle('activePhotoSlide', i === resortIndex));
-    thumbs.forEach((th, i) => th.classList.toggle('activeRibbonThumb', i === resortIndex));
-    updateCurrentSlideCaptions();
+  function setReviewSlide(idx) {
+    updateReviewSlide(idx);
   }
 
-  function nextResortPhoto() { jumpResortPhoto(resortIndex + 1); }
-  function prevResortPhoto() { jumpResortPhoto(resortIndex - 1); }
+  // 4. Swipe-Up Dismissible Sticky Bottom Bar
+  let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+  const stickyBar = document.getElementById('mobileStickyBar');
+  const heroSection = document.getElementById('hero');
 
-  function updateCurrentSlideCaptions() {
-    const activeSlide = document.querySelector('.photoSlide.activePhotoSlide');
-    if (activeSlide) {
-      const captionTag = activeSlide.querySelector('.photoCaptionTag');
-      if (captionTag) {
-        captionTag.textContent = currentLanguage === 'ru' 
-          ? activeSlide.getAttribute('data-caption-ru') 
-          : activeSlide.getAttribute('data-caption-en');
+  function handleScrollDirection() {
+    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const heroHeight = heroSection ? heroSection.offsetHeight - 80 : 400;
+
+    // Check if scrolled past hero
+    if (currentScrollY > heroHeight) {
+      // Check scroll direction: if scrolling UP, dismiss/hide immediately!
+      if (currentScrollY < lastScrollY - 3) {
+        stickyBar.classList.remove('visible');
+      } else if (currentScrollY > lastScrollY + 3) {
+        // Scrolling DOWN: show sticky bar
+        stickyBar.classList.add('visible');
       }
-    }
-  }
-
-  function displayStay(mode) {
-    const paneResidence = document.getElementById('residenceDisplayPane');
-    const paneResort = document.getElementById('resortDisplayPane');
-    const btnResidence = document.getElementById('btnSelectResidence');
-    const btnResort = document.getElementById('btnSelectResort');
-
-    if (mode === 'resort') {
-      paneResidence.classList.add('hiddenStayPane');
-      paneResort.classList.remove('hiddenStayPane');
-      btnResidence.classList.remove('activeModernTab');
-      btnResort.classList.add('activeModernTab');
     } else {
-      paneResidence.classList.remove('hiddenStayPane');
-      paneResort.classList.add('hiddenStayPane');
-      btnResidence.classList.add('activeModernTab');
-      btnResort.classList.remove('activeModernTab');
-    }
-  }
-
-  function displayPricing(season) {
-    const paneWinter = document.getElementById('pricingPaneWinter');
-    const paneSpring = document.getElementById('pricingPaneSpring');
-    const btnWinter = document.getElementById('btnPriceWinter');
-    const btnSpring = document.getElementById('btnPriceSpring');
-
-    if (season === 'spring') {
-      paneWinter.style.display = 'none';
-      paneSpring.style.display = 'grid';
-      btnWinter.classList.remove('activePricingToggle');
-      btnSpring.classList.add('activePricingToggle');
-    } else {
-      paneWinter.style.display = 'grid';
-      paneSpring.style.display = 'none';
-      btnWinter.classList.add('activePricingToggle');
-      btnSpring.classList.remove('activePricingToggle');
-    }
-  }
-
-  // Direct WhatsApp Inquiry Pre-fill
-  function openWhatsAppInquiry() {
-    const checkin = document.getElementById('checkInDate').value || 'Flexible';
-    const checkout = document.getElementById('checkOutDate').value || 'Flexible';
-    const guests = document.getElementById('guestsCount').value;
-    const purpose = document.getElementById('tripPurpose').value;
-
-    let msg = "";
-    if (currentLanguage === 'ru') {
-      msg = `Здравствуйте, Манана! Меня интересует прямое бронирование Apartment Mountain Orchid в Новом Гудаури.
-
-Даты: ${checkin} — ${checkout}
-Гости: ${guests}
-Поездка: ${purpose}
-
-Подскажите, пожалуйста, свободен ли номер на эти даты и прямой тариф без комиссии Booking.com?`;
-    } else {
-      msg = `Hello Manana! I would like to inquire about booking Apartment Mountain Orchid directly in New Gudauri.
-
-Dates: ${checkin} to ${checkout}
-Guests: ${guests}
-Purpose: ${purpose}
-
-Could you please let me know availability and the direct 0% commission rate? Thank you!`;
+      // Still on hero section: keep hidden
+      stickyBar.classList.remove('visible');
     }
 
-    const encoded = encodeURIComponent(msg);
-    const waUrl = `https://wa.me/995577222123?text=${encoded}`;
-    window.open(waUrl, '_blank');
+    lastScrollY = Math.max(0, currentScrollY);
   }
 
-  // Scroll Trigger for Sticky Mobile Bar (Threshold > 600px)
-  window.addEventListener('scroll', () => {
-    const stickyBar = document.getElementById('mobileStickyBar');
-    if (!stickyBar) return;
-    if (window.scrollY > 600) {
-      stickyBar.classList.add('is-visible');
-    } else {
-      stickyBar.classList.remove('is-visible');
+  window.addEventListener('scroll', handleScrollDirection, { passive: true });
+
+  // Touch Swipe-Up Dismiss
+  let touchStartY = 0;
+  window.addEventListener('touchstart', e => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', e => {
+    const touchCurrentY = e.touches[0].clientY;
+    const deltaY = touchStartY - touchCurrentY;
+    // deltaY > 15 means swiping up -> dismiss sticky bar
+    if (deltaY > 15) {
+      stickyBar.classList.remove('visible');
     }
   }, { passive: true });
 
-  // Swipe Gestures for Mobile
-  function enableSwipe(el, onLeft, onRight) {
-    if (!el) return;
-    let startX = 0, startY = 0;
-    el.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-    }, { passive: true });
-    el.addEventListener('touchend', e => {
-      const diffX = e.changedTouches[0].clientX - startX;
-      const diffY = e.changedTouches[0].clientY - startY;
-      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
-        if (diffX < 0) onLeft();
-        else onRight();
-      }
-    }, { passive: true });
+  // 5. Date-Free WhatsApp Inquiry (For Sticky Bar)
+  function openDirectWhatsAppNoDates() {
+    const phone = '995599557451';
+    let text = "";
+    if (currentLang === 'ru') {
+      text = "Здравствуйте, Манана! Меня интересует бронирование апартаментов Mountain Orchid в Новом Гудаури.";
+    } else {
+      text = "Hello Manana, I'm interested in booking Apartment Mountain Orchid in New Gudauri.";
+    }
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Set default dates
+  // 6. Interactive Form WhatsApp Inquiry (Includes Dates)
+  function submitDirectBooking() {
+    const phone = '995599557451';
+    const checkIn = document.getElementById('checkInDate').value || 'Flexible';
+    const checkOut = document.getElementById('checkOutDate').value || 'Flexible';
+    const guests = document.getElementById('guestCount').value;
+    const purpose = document.getElementById('tripPurpose').value;
+
+    let text = "";
+    if (currentLang === 'ru') {
+      text = `Здравствуйте, Манана! Хочу забронировать Apartment Mountain Orchid в Новом Гудаури:\n• Заезд: ${checkIn}\n• Выезд: ${checkOut}\n• Гости: ${guests}\n• Цель поездки: ${purpose}\n\nПодскажите, пожалуйста, доступны ли даты по прямому тарифу $85/ночь? Спасибо!`;
+    } else {
+      text = `Hello Manana! I would like to book Apartment Mountain Orchid in New Gudauri:\n• Check-in: ${checkIn}\n• Check-out: ${checkOut}\n• Guests: ${guests}\n• Purpose: ${purpose}\n\nCould you please confirm availability at the direct rate of $85/night? Thank you!`;
+    }
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+
+  // Initialize Default Form Dates (Tomorrow + 5 days)
+  (function initDates() {
+    const checkInInput = document.getElementById('checkInDate');
+    const checkOutInput = document.getElementById('checkOutDate');
     const today = new Date();
-    const inDate = new Date(today.getTime() + 7 * 86400000);
-    const outDate = new Date(today.getTime() + 12 * 86400000);
+    const checkIn = new Date(today);
+    checkIn.setDate(today.getDate() + 1);
+    const checkOut = new Date(today);
+    checkOut.setDate(today.getDate() + 6);
 
-    const fmt = d => d.toISOString().split('T')[0];
-    const checkInEl = document.getElementById('checkInDate');
-    const checkOutEl = document.getElementById('checkOutDate');
-    if (checkInEl) checkInEl.value = fmt(inDate);
-    if (checkOutEl) checkOutEl.value = fmt(outDate);
-
-    // Initialize swipes
-    enableSwipe(document.getElementById('residenceStageBox'), nextResidencePhoto, prevResidencePhoto);
-    enableSwipe(document.getElementById('resortStageBox'), nextResortPhoto, prevResortPhoto);
-    enableSwipe(document.getElementById('reviewsStageBox'), nextReview, prevReview);
-
-    // Auto rotate reviews every 8 seconds
-    setInterval(nextReview, 8000);
-  });
+    const formatDate = d => d.toISOString().split('T')[0];
+    if (checkInInput) checkInInput.value = formatDate(checkIn);
+    if (checkOutInput) checkOutInput.value = formatDate(checkOut);
+  })();
 </script>
-
 </body>
 </html>
